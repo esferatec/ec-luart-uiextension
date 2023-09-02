@@ -18,6 +18,8 @@ The module provides the following extension objects:
 
 More detailed descriptions and usage examples can be found in the docs folder.
 
+*The LinkLabel and HyperLink objects were inspired by the LuaRT example.*
+
 ## Installation
 
 1. Create a folder called "ecluart" in your application.
