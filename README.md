@@ -14,7 +14,9 @@ The module provides the following extension objects:
 | Name | Description | Module |
 | --- | --- | --- |
 | LinkLabel | Represents a text label control that can display an internal link. The onClick event can be used to execute any code. | uiextension.lua
-| HyperLink | Represents a text label control that can display an external hyperlink. The onClick event will open the link in the default web browser. | uiextension.lua
+| HyperLink | Represents a text label control that can display an external hyperlink. The onClick event will open the link in the web browser. | uiextension.lua
+| FileLink | Represents a text label control that can display an internal link. The onClick event will open the file in the file explorer. | uiextension.lua
+| DictonaryLink | Represents a text label control that can display an internal link. The onClick event will open the dictonary in the file explorer. | uiextension.lua
 
 More detailed descriptions and usage examples can be found in the docs folder.
 
