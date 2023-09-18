@@ -6,8 +6,4 @@ local win = ui.Window("HyperLink", "fixed", 320, 250)
 local link = uiex.HyperLink(win, "www.luart.org")
 link:center()
 
-win:show()
-
-while win.visible do
-  ui.update()
-end
+ui.run(win):wait()

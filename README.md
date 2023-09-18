@@ -3,8 +3,8 @@
 This project provides various extension ui objects for [LuaRT](https://www.luart.org/).
 It has been designed to simplify and improve the creation of graphical user interfaces with the LuaRT ui module.
 
-[![Lua 5.4](https://badgen.net/badge/Lua/5.4/yellow)](https://github.com/lua/lua)
-[![LuaRT 1.5.1](https://badgen.net/badge/LuaRT/1.5.1/blue)](https://github.com/samyeyo/LuaRT)
+[![Lua 5.4.6](https://badgen.net/badge/Lua/5.4.6/yellow)](https://github.com/lua/lua)
+[![LuaRT 1.5.2](https://badgen.net/badge/LuaRT/1.5.2/blue)](https://github.com/samyeyo/LuaRT)
 [![LuaCheck 1.1.1](https://badgen.net/badge/LuaCheck/1.1.1/green)](https://github.com/lunarmodules/luacheck)
 
 ## Features
@@ -14,9 +14,9 @@ The module provides the following extension objects:
 | Name | Description | Module |
 | --- | --- | --- |
 | LinkLabel | Represents a text label control that can display an internal link. The onClick event can be used to execute any code. | uiextension.lua
-| HyperLink | Represents a text label control that can display an external hyperlink. The onClick event will open the link in the web browser. | uiextension.lua
+| HyperLink | Represents a text label control that can display an external link. The onClick event will open the link in the web browser. | uiextension.lua
 | FileLink | Represents a text label control that can display an internal link. The onClick event will open the file in the file explorer. | uiextension.lua
-| DictonaryLink | Represents a text label control that can display an internal link. The onClick event will open the dictonary in the file explorer. | uiextension.lua
+| DirectoryLink | Represents a text label control that can display an internal link. The onClick event will open the directory in the file explorer. | uiextension.lua
 
 More detailed descriptions and usage examples can be found in the docs folder.
 
@@ -40,10 +40,10 @@ More detailed descriptions and usage examples can be found in the docs folder.
 
 ## Usage
 
-The extension objects can be loaded using the function *require()*:
+The extension module can be loaded using the function *require()*:
 
 ```lua
-local uiex = require("ecluart.uiextension") 
+local uiextension = require("ecluart.uiextension") 
 ```
 
 ## License

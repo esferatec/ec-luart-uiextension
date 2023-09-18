@@ -1,6 +1,6 @@
 # HyperLink
 
-Represents a text label control that can display an external hyperlink. The onClick event will open the link in the default web browser.
+Represents a text label control that can display an external link. The onClick event will open the link in the web browser.
 
 ![hyperlink](/docs/hyperlink/hyperlink01.png)
 

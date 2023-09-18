@@ -10,8 +10,4 @@ function link:onClick()
   ui.info("About")
 end
 
-win:show()
-
-while win.visible do
-  ui.update()
-end
+ui.run(win):wait()
