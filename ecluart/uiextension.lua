@@ -13,6 +13,7 @@ local LinkLabel = Object(ui.Label)
 function LinkLabel:constructor(...)
   super(self).constructor(self, ...)
   self.cursor = "hand"
+  self.textalign = "left"
 end
 
 -- Overrites the label onhover event.
@@ -54,22 +55,23 @@ end
 
 --#endregion
 
---#region hyperlink
+--#region baselink
 
 -- Creates a new hyper link object.
-local HyperLink = Object(ui.Label)
+local BaseLink = Object(ui.Label)
 
 -- Overrites the default label constructor.
-function HyperLink:constructor(...)
+function BaseLink:constructor(...)
   super(self).constructor(self, ...)
   self.vdcolor = 0x551A8B -- vistied color
   self.hvcolor = 0x0000EE -- hoover color
   self.fgcolor = self.hvcolor
   self.cursor = "hand"
+  self.textalign = "left"
 end
 
 -- Overrites the label onhover event.
-function HyperLink:onHover()
+function BaseLink:onHover()
   if self.fgcolor ~= self.vdcolor then
     self.fgcolor = self.hvcolor
   end
@@ -89,7 +91,7 @@ function HyperLink:onHover()
 end
 
 -- Overrites the label onleave event.
-function HyperLink:onLeave()
+function BaseLink:onLeave()
   if self.fgcolor ~= self.vdcolor then
     self.fgcolor = self.hvcolor
   end
@@ -107,6 +109,13 @@ function HyperLink:onLeave()
     bold = currentBold
   }
 end
+
+--#endregion
+
+--#region hyperlink
+
+-- Creates a new hyper link object.
+local HyperLink = Object(BaseLink)
 
 -- Overrites the label onclick event.
 function HyperLink:onClick()
@@ -124,56 +133,7 @@ end
 --#region filelink
 
 -- Creates a new file link object.
-local FileLink = Object(ui.Label)
-
--- Overrites the default label constructor.
-function FileLink:constructor(...)
-  super(self).constructor(self, ...)
-  self.vdcolor = 0x551A8B -- vistied color
-  self.hvcolor = 0x0000EE -- hoover color
-  self.fgcolor = self.hvcolor
-  self.cursor = "hand"
-end
-
--- Overrites the label onhover event.
-function FileLink:onHover()
-  if self.fgcolor ~= self.vdcolor then
-    self.fgcolor = self.hvcolor
-  end
-
-  local currentItalic = self.fontstyle.italic
-  local currentStrike = self.fontstyle.strike
-  local currentThin = self.fontstyle.thin
-  local currentBold = self.fontstyle.bold
-
-  self.fontstyle = {
-    underline = true,
-    italic = currentItalic,
-    strike = currentStrike,
-    thin = currentThin,
-    bold = currentBold
-  }
-end
-
--- Overrites the label onleave event.
-function FileLink:onLeave()
-  if self.fgcolor ~= self.vdcolor then
-    self.fgcolor = self.hvcolor
-  end
-
-  local currentItalic = self.fontstyle.italic
-  local currentStrike = self.fontstyle.strike
-  local currentThin = self.fontstyle.thin
-  local currentBold = self.fontstyle.bold
-
-  self.fontstyle = {
-    underline = false,
-    italic = currentItalic,
-    strike = currentStrike,
-    thin = currentThin,
-    bold = currentBold
-  }
-end
+local FileLink = Object(BaseLink)
 
 -- Overrites the label onclick event.
 function FileLink:onClick()
@@ -193,56 +153,7 @@ end
 --#region directorylink
 
 -- Creates a new directory link object.
-local DirectoryLink = Object(ui.Label)
-
--- Overrites the default label constructor.
-function DirectoryLink:constructor(...)
-  super(self).constructor(self, ...)
-  self.vdcolor = 0x551A8B -- vistied color
-  self.hvcolor = 0x0000EE -- hoover color
-  self.fgcolor = self.hvcolor
-  self.cursor = "hand"
-end
-
--- Overrites the label onhover event.
-function DirectoryLink:onHover()
-  if self.fgcolor ~= self.vdcolor then
-    self.fgcolor = self.hvcolor
-  end
-
-  local currentItalic = self.fontstyle.italic
-  local currentStrike = self.fontstyle.strike
-  local currentThin = self.fontstyle.thin
-  local currentBold = self.fontstyle.bold
-
-  self.fontstyle = {
-    underline = true,
-    italic = currentItalic,
-    strike = currentStrike,
-    thin = currentThin,
-    bold = currentBold
-  }
-end
-
--- Overrites the label onleave event.
-function DirectoryLink:onLeave()
-  if self.fgcolor ~= self.vdcolor then
-    self.fgcolor = self.hvcolor
-  end
-
-  local currentItalic = self.fontstyle.italic
-  local currentStrike = self.fontstyle.strike
-  local currentThin = self.fontstyle.thin
-  local currentBold = self.fontstyle.bold
-
-  self.fontstyle = {
-    underline = false,
-    italic = currentItalic,
-    strike = currentStrike,
-    thin = currentThin,
-    bold = currentBold
-  }
-end
+local DirectoryLink = Object(BaseLink)
 
 -- Overrites the label onclick event.
 function DirectoryLink:onClick()
