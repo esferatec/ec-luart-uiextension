@@ -30,18 +30,14 @@ local uiex = require("ecluart.uiextension")
 
 local win = ui.Window("LinkLabel", "fixed", 320, 250)
 
-local link = uiex.LinkLabel(win, "About")
+local link = uiex.LinkLabel(win, "About", 10, 10)
 link:center()
 
 function link:onClick()
   ui.info("About")
 end
 
-win:show()
-
-while win.visible do
-  ui.update()
-end
+ui.run(win):wait()
 ```
 
 ![linklabel](/docs/linklabel/linklabel01.png)
