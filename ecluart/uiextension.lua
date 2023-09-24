@@ -1,7 +1,7 @@
 local ui = require("ui")
 local sys = require("sys")
 
--- Provides various ui objects.
+-- Provides various extension ui objects.
 local uiextension = {}
 
 --#region linklabel
