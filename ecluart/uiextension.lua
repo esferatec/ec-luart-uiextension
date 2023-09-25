@@ -9,14 +9,14 @@ local uiextension = {}
 -- Creates a new link label object.
 local LinkLabel = Object(ui.Label)
 
--- Overrites the default label constructor.
+-- Overrides the default label constructor.
 function LinkLabel:constructor(...)
   super(self).constructor(self, ...)
   self.cursor = "hand"
   self.textalign = "left"
 end
 
--- Overrites the label onhover event.
+-- Overrides the label onhover event.
 function LinkLabel:onHover()
   local currentItalic = self.fontstyle.italic
   local currentStrike = self.fontstyle.strike
@@ -32,7 +32,7 @@ function LinkLabel:onHover()
   }
 end
 
--- Overrites the label onleave event.
+-- Overrides the label onleave event.
 function LinkLabel:onLeave()
   local currentItalic = self.fontstyle.italic
   local currentStrike = self.fontstyle.strike
@@ -57,12 +57,13 @@ end
 
 --#region baselink
 
--- Creates a new hyper link object.
+-- Defines the base link prototype.
 local BaseLink = Object(ui.Label)
 
--- Overrites the default label constructor.
+-- Overrides the default label constructor.
 function BaseLink:constructor(...)
   super(self).constructor(self, ...)
+  
   self.vdcolor = 0x551A8B -- vistied color
   self.hvcolor = 0x0000EE -- hoover color
   self.fgcolor = self.hvcolor
@@ -70,7 +71,7 @@ function BaseLink:constructor(...)
   self.textalign = "left"
 end
 
--- Overrites the label onhover event.
+-- Overrides the label onhover event.
 function BaseLink:onHover()
   if self.fgcolor ~= self.vdcolor then
     self.fgcolor = self.hvcolor
@@ -90,7 +91,7 @@ function BaseLink:onHover()
   }
 end
 
--- Overrites the label onleave event.
+-- Overrides the label onleave event.
 function BaseLink:onLeave()
   if self.fgcolor ~= self.vdcolor then
     self.fgcolor = self.hvcolor
@@ -117,7 +118,7 @@ end
 -- Creates a new hyper link object.
 local HyperLink = Object(BaseLink)
 
--- Overrites the label onclick event.
+-- Overrides the label onclick event.
 function HyperLink:onClick()
   self.fgcolor = self.vdcolor
   sys.cmd("start " .. self.text)
@@ -135,7 +136,7 @@ end
 -- Creates a new file link object.
 local FileLink = Object(BaseLink)
 
--- Overrites the label onclick event.
+-- Overrides the label onclick event.
 function FileLink:onClick()
   self.fgcolor = self.vdcolor
 
@@ -155,7 +156,7 @@ end
 -- Creates a new directory link object.
 local DirectoryLink = Object(BaseLink)
 
--- Overrites the label onclick event.
+-- Overrides the label onclick event.
 function DirectoryLink:onClick()
   self.fgcolor = self.vdcolor
 
