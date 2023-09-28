@@ -19,6 +19,7 @@ The module provides the following extension objects:
 | HyperLink | Represents a text label control that can display an external link. The onClick event will open the link in the web browser. | uiextension.lua
 | FileLink | Represents a text label control that can display an external link. The onClick event will open the file in the file explorer. | uiextension.lua
 | DirectoryLink | Represents a text label control that can display an external link. The onClick event will open the directory in the file explorer. | uiextension.lua
+| SelectList | Represents a list control containing a collection of selectable items. The onDoubleClick event selects or deselects the item. | uiextension.lua
 
 More detailed descriptions and usage examples can be found in the docs folder.
 
@@ -28,6 +29,7 @@ More detailed descriptions and usage examples can be found in the docs folder.
 
 1. Create a folder called "ecluart" in your application.
 2. Copy the "uiextension.lua" file into this folder.
+3. Copy any icon files into the same folder.
 
 ```text
 [application]

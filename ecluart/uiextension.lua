@@ -63,7 +63,7 @@ local BaseLink = Object(ui.Label)
 -- Overrides the default label constructor.
 function BaseLink:constructor(...)
   super(self).constructor(self, ...)
-  
+
   self.vdcolor = 0x551A8B -- vistied color
   self.hvcolor = 0x0000EE -- hoover color
   self.fgcolor = self.hvcolor
@@ -167,6 +167,51 @@ end
 -- Initializes a new directory link instance.
 function uiextension.DirectoryLink(...)
   return DirectoryLink(...)
+end
+
+--#endregion
+
+--#region selectlist
+
+-- Creates a new select list object.
+local SelectList = Object(ui.List)
+
+-- Overrides the default list constructor.
+function SelectList:constructor(...)
+  super(self).constructor(self, ...)
+  self.style = "icons"
+
+  -- Defines a table for all selected items.
+  local _selectedItems = {}
+
+  -- Defines a getter method for the property selectedItems.
+  function SelectList:get_selecteditems()
+    return _selectedItems
+  end
+
+  -- Defines a setter method for the property selectedItems.
+  function SelectList:set_selecteditems()
+    return
+  end
+
+  -- Overrides the default list ondoubleclick event.
+  function SelectList:onDoubleClick(item)
+    if #self.items == 0 then return end
+    if item == nil then return end
+
+    if _selectedItems[item.index] ~= nil then
+      item:loadicon(sys.currentdir .. "\\ecluart\\_unchecked.ico")
+      _selectedItems[item.index] = nil
+    else
+      item:loadicon(sys.currentdir .. "\\ecluart\\_checked.ico")
+      _selectedItems[item.index] = item.text
+    end
+  end
+end
+
+-- Initializes a new checkbox list instance.
+function uiextension.SelectList(...)
+  return SelectList(...)
 end
 
 --#endregion
