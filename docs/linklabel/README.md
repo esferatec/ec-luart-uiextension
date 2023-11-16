@@ -22,14 +22,6 @@ Parameter | Type | Description
 ---|---|---
 link | string | Sets the internal link.
 
-## Property - SELECTEDITEMS
-
-Gets the selected list items.
-
-```Lua
-SelectList.selecteditems (table)
-```
-
 ## Example
 
 ```Lua

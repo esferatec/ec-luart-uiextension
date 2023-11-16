@@ -22,6 +22,14 @@ Parameter | Type | Description
 ---|---|---
 -- | -- | --
 
+## Property - SELECTEDITEMS
+
+Gets the selected list items.
+
+```Lua
+SelectList.selecteditems (table)
+```
+
 ## Example
 
 ```Lua
