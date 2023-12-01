@@ -121,7 +121,8 @@ local HyperLink = Object(BaseLink)
 -- Overrides the label onclick event.
 function HyperLink:onClick()
   self.fgcolor = self.vdcolor
-  sys.cmd("start " .. self.text)
+  print("start www.luart.org")
+  sys.cmd("start " .. self.text, true, true)
 end
 
 -- Initializes a new hyper link instance.
@@ -141,7 +142,7 @@ function FileLink:onClick()
   self.fgcolor = self.vdcolor
 
   local linkedFile = sys.File(self.text)
-  sys.cmd("explorer /select," .. linkedFile.fullpath)
+  sys.cmd("explorer /select," .. linkedFile.fullpath, true, true)
 end
 
 -- Initializes a new file link instance.
@@ -161,7 +162,7 @@ function DirectoryLink:onClick()
   self.fgcolor = self.vdcolor
 
   local linkedFolder = sys.Directory(self.text)
-  sys.cmd("explorer /select," .. linkedFolder.fullpath)
+  sys.cmd("explorer /select," .. linkedFolder.fullpath, true, true)
 end
 
 -- Initializes a new directory link instance.
@@ -200,7 +201,7 @@ function SelectList:constructor(...)
     if item == nil then return end
 
     if _selectedItems[item.index] ~= nil then
-      item:loadicon(sys.currentdir .. "\\ecluart\\_unchecked.ico")
+      item:loadicon(nil)
       _selectedItems[item.index] = nil
     else
       item:loadicon(sys.currentdir .. "\\ecluart\\_checked.ico")
