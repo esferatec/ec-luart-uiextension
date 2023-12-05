@@ -210,9 +210,62 @@ function SelectList:constructor(...)
   end
 end
 
--- Initializes a new checkbox list instance.
+-- Initializes a new select list instance.
 function uiextension.SelectList(...)
   return SelectList(...)
+end
+
+--#endregion
+
+--#region toggleswitch
+
+-- Creates a new toggle switch object.
+local ToggleSwitch = Object(ui.Picture)
+
+-- Overrides the default list constructor.
+function ToggleSwitch:constructor(parent, checked, x, y, width, height)
+  local _checked = checked or false
+
+  local _width = width or 32
+  local _height = height or 32
+  local _imageOn = (_height <= 32) and sys.currentdir .. "\\ecluart\\_on2.png" or sys.currentdir .. "\\ecluart\\_on3.png"
+  local _imageOff = (_height <= 32) and sys.currentdir .. "\\ecluart\\_off2.png" or sys.currentdir .. "\\ecluart\\_off3.png"
+
+  local _image = _checked and _imageOn or _imageOff
+
+  super(self).constructor(self, parent, _image, x, y, _width, _height)
+
+  -- Defines a getter method for the property checked.
+  function ToggleSwitch:get_checked()
+    return _checked
+  end
+
+  -- Defines a setter method for the property state.
+  function ToggleSwitch:set_checked(value)
+    _checked = value or false
+
+    _width = self.width
+    _height = self.height
+    _image = _checked and _imageOn or _imageOff
+    self:load(_image)
+    self.width = _width
+    self.height = _height
+  end
+
+  -- Overrides the default image onclick event.
+  function ToggleSwitch:onClick()
+    self.checked = not _checked
+  end
+
+  -- Overrides the default image ondoubleclick event.
+  function ToggleSwitch:onDoubleClick()
+    self.checked = not _checked
+  end
+end
+
+-- Initializes a new toggle switch instance.
+function uiextension.ToggleSwitch(parent, checked, x, y, width, height)
+  return ToggleSwitch(parent, checked, x, y, width, height)
 end
 
 --#endregion
