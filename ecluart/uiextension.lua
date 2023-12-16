@@ -64,7 +64,7 @@ local BaseLink = Object(ui.Label)
 function BaseLink:constructor(...)
   super(self).constructor(self, ...)
 
-  self.vdcolor = 0x551A8B -- vistied color
+  self.vdcolor = 0x551A8B -- visited color
   self.hvcolor = 0x0000EE -- hoover color
   self.fgcolor = self.hvcolor
   self.cursor = "hand"
@@ -121,7 +121,6 @@ local HyperLink = Object(BaseLink)
 -- Overrides the label onclick event.
 function HyperLink:onClick()
   self.fgcolor = self.vdcolor
-  print("start www.luart.org")
   sys.cmd("start " .. self.text, true, true)
 end
 
@@ -181,32 +180,20 @@ local SelectList = Object(ui.List)
 function SelectList:constructor(...)
   super(self).constructor(self, ...)
   self.style = "icons"
+  self.selecteditems = {}
+end
 
-  -- Defines a table for all selected items.
-  local _selectedItems = {}
+-- Overrides the default list ondoubleclick event.
+function SelectList:onDoubleClick(item)
+  if #self.items == 0 then return end
+  if item == nil then return end
 
-  -- Defines a getter method for the property selectedItems.
-  function SelectList:get_selecteditems()
-    return _selectedItems
-  end
-
-  -- Defines a setter method for the property selectedItems.
-  function SelectList:set_selecteditems()
-    return
-  end
-
-  -- Overrides the default list ondoubleclick event.
-  function SelectList:onDoubleClick(item)
-    if #self.items == 0 then return end
-    if item == nil then return end
-
-    if _selectedItems[item.index] ~= nil then
-      item:loadicon(nil)
-      _selectedItems[item.index] = nil
-    else
-      item:loadicon(sys.currentdir .. "\\ecluart\\_checked.ico")
-      _selectedItems[item.index] = item.text
-    end
+  if self.selecteditems[item.index] ~= nil then
+    item:loadicon(nil)
+    self.selecteditems[item.index] = nil
+  else
+    item:loadicon(sys.currentdir .. "\\ecluart\\_checked.ico")
+    self.selecteditems[item.index] = item.text
   end
 end
 
@@ -224,43 +211,38 @@ local ToggleSwitch = Object(ui.Picture)
 
 -- Overrides the default list constructor.
 function ToggleSwitch:constructor(parent, checked, x, y, width, height)
-  local _checked = checked or false
-
-  local _width = width or 32
-  local _height = height or 32
-  local _imageOn = (_height <= 32) and sys.currentdir .. "\\ecluart\\_on2.png" or sys.currentdir .. "\\ecluart\\_on3.png"
-  local _imageOff = (_height <= 32) and sys.currentdir .. "\\ecluart\\_off2.png" or sys.currentdir .. "\\ecluart\\_off3.png"
-
-  local _image = _checked and _imageOn or _imageOff
-
-  super(self).constructor(self, parent, _image, x, y, _width, _height)
+  super(self).constructor(self, parent, "", x, y, width, height)
+  local _checked = false
 
   -- Defines a getter method for the property checked.
-  function ToggleSwitch:get_checked()
+  function self:get_checked()
     return _checked
   end
 
   -- Defines a setter method for the property state.
-  function ToggleSwitch:set_checked(value)
-    _checked = value or false
+  function self:set_checked(value)
+    _checked= value or false
 
-    _width = self.width
-    _height = self.height
-    _image = _checked and _imageOn or _imageOff
-    self:load(_image)
+    local _width = self.width
+    local _height = self.height
+    local _imageOn = (_height <= 32) and sys.currentdir .. "\\ecluart\\_on2.png" or sys.currentdir .. "\\ecluart\\_on3.png"
+    local _imageOff = (_height <= 32) and sys.currentdir .. "\\ecluart\\_off2.png" or sys.currentdir .. "\\ecluart\\_off3.png"
+    self:load(_checked and _imageOn or _imageOff)
     self.width = _width
     self.height = _height
   end
 
-  -- Overrides the default image onclick event.
-  function ToggleSwitch:onClick()
-    self.checked = not _checked
-  end
+  self.checked = checked
+end
 
-  -- Overrides the default image ondoubleclick event.
-  function ToggleSwitch:onDoubleClick()
-    self.checked = not _checked
-  end
+-- Overrides the default image onclick event.
+function ToggleSwitch:onClick()
+  self.checked = not self.checked
+end
+
+-- Overrides the default image ondoubleclick event.
+function ToggleSwitch:onDoubleClick()
+  self.checked = not self.checked
 end
 
 -- Initializes a new toggle switch instance.
