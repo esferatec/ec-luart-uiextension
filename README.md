@@ -21,6 +21,7 @@ The module provides the following extension objects:
 | DirectoryLink | Represents a label control that can display an external link. The onClick event will open the directory in the file explorer. | uiextension.lua
 | SelectList | Represents a picture control that represents a on or off switch. The onClick or onDoubleClick event will change the status of the switch. | uiextension.lua
 | ToggleSwitch | Represents a list control containing a collection of selectable items. The onDoubleClick event selects or deselects the item. | uiextension.lua
+| ColumnPanel | Represents a panel control containing a collection of children widgets. The onClick event saves the current row. | uiextension.lua
 
 More detailed descriptions and usage examples can be found in the docs folder.
 

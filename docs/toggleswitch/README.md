@@ -6,7 +6,7 @@ Represents a picture control that represents a on or off switch. The onClick or 
 
 **Note:**
 This documentation describes only the additional properties and methods.
-The standard properties, methods and events can be found in the [LuaRT List](https://www.luart.org/doc/ui/Picture.html) documentation.
+The standard properties, methods and events can be found in the [LuaRT Picture](https://www.luart.org/doc/ui/Picture.html) documentation.
 
 The onClick or onDoubleClick event should not be overridden.
 

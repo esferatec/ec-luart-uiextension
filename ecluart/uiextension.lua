@@ -221,12 +221,14 @@ function ToggleSwitch:constructor(parent, checked, x, y, width, height)
 
   -- Defines a setter method for the property state.
   function self:set_checked(value)
-    _checked= value or false
+    _checked = value or false
 
     local _width = self.width
     local _height = self.height
-    local _imageOn = (_height <= 32) and sys.currentdir .. "\\ecluart\\_on2.png" or sys.currentdir .. "\\ecluart\\_on3.png"
-    local _imageOff = (_height <= 32) and sys.currentdir .. "\\ecluart\\_off2.png" or sys.currentdir .. "\\ecluart\\_off3.png"
+    local _imageOn = (_height <= 32) and sys.currentdir .. "\\ecluart\\_on2.png" or
+    sys.currentdir .. "\\ecluart\\_on3.png"
+    local _imageOff = (_height <= 32) and sys.currentdir .. "\\ecluart\\_off2.png" or
+    sys.currentdir .. "\\ecluart\\_off3.png"
     self:load(_checked and _imageOn or _imageOff)
     self.width = _width
     self.height = _height
@@ -248,6 +250,68 @@ end
 -- Initializes a new toggle switch instance.
 function uiextension.ToggleSwitch(parent, checked, x, y, width, height)
   return ToggleSwitch(parent, checked, x, y, width, height)
+end
+
+--#endregion
+
+--#region columnpanel
+
+-- Creates a new column panel object.
+local ColumnPanel = Object(ui.Panel)
+
+-- Overrides the default panel constructor.
+function ColumnPanel:constructor(parent, kind, rows, x, y, width, height)
+  super(self).constructor(self, parent, x, y, width, height)
+
+  self.gap = 5
+  self.rows = rows or 1
+  self.kind = kind or Object(ui.Label)
+  self.children = {}
+
+  self.firstrow = 1
+  self.lastrow = self.rows
+  self.currentrow = 1
+end
+
+-- Overrides the panel oncreate event.
+function ColumnPanel:onCreate()
+  local nexty, nextx = 0, 0
+
+  for i = 1, self.rows do
+    self.children[i] = self.kind(self, "", nextx, nexty, self.width, nil)
+    self.children[i].onClick = function() self.currentrow = i end
+    nexty = i * (self.children[i].height + self.gap)
+  end
+
+  self.height = nexty - self.gap
+end
+
+-- Changes a property of all children.
+function ColumnPanel:change(key, value)
+  if type(key) ~= "string" then return end
+
+  for _, child in pairs(self.children) do
+    child[key] = value
+  end
+end
+
+-- Rearranges the position all children.
+function ColumnPanel:rearrange()
+  local nexty, nextx = 0, 0
+
+  for i = 1, self.rows do
+    self.children[i].y = nexty
+    self.children[i].x = nextx
+    self.children[i].width = self.width
+    nexty = i * (self.children[i].height + self.gap)
+  end
+
+  self.height = nexty - self.gap
+end
+
+-- Initializes a new column panel instance.
+function uiextension.ColumnPanel(parent, kind, rows, x, y, width, height)
+  return ColumnPanel(parent, kind, rows, x, y, width, height)
 end
 
 --#endregion
