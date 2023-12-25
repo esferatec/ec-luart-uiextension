@@ -8,6 +8,8 @@ Represents a panel control containing a collection of children objects. The onCl
 This documentation describes only the additional properties and methods.
 The standard properties, methods and events can be found in the [LuaRT Panel](https://www.luart.org/doc/ui/Panel.html) documentation.
 
+The border is not visible by default.
+
 ## Constructor
 
 Initializes a new column panel instance.
