@@ -2,7 +2,7 @@
 
 Represents a panel control containing a collection of children objects. The onClick event saves the current row.
 
-![ColumnPanel](/docs/ColumnPanel/ColumnPanel01.png)
+![ColumnPanel](/docs/columnpanel/columnpanel01.png)
 
 **Note:**
 This documentation describes only the additional properties and methods.
@@ -102,4 +102,4 @@ end
 ui.run(win):wait()
 ```
 
-![ColumnPanel](/docs/ColumnPanel/ColumnPanel01.png)
+![ColumnPanel](/docs/columnpanel/columnpanel01.png)
