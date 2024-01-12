@@ -18,34 +18,16 @@ end
 
 -- Overrides the label onhover event.
 function LinkLabel:onHover()
-  local currentItalic = self.fontstyle.italic
-  local currentStrike = self.fontstyle.strike
-  local currentThin = self.fontstyle.thin
-  local currentBold = self.fontstyle.bold
-
-  self.fontstyle = {
-    underline = true,
-    italic = currentItalic,
-    strike = currentStrike,
-    thin = currentThin,
-    bold = currentBold
-  }
+  local currentFontStyle = self.fontstyle
+  currentFontStyle.underline = true
+  self.fontstyle = currentFontStyle
 end
 
 -- Overrides the label onleave event.
 function LinkLabel:onLeave()
-  local currentItalic = self.fontstyle.italic
-  local currentStrike = self.fontstyle.strike
-  local currentThin = self.fontstyle.thin
-  local currentBold = self.fontstyle.bold
-
-  self.fontstyle = {
-    underline = false,
-    italic = currentItalic,
-    strike = currentStrike,
-    thin = currentThin,
-    bold = currentBold
-  }
+  local currentFontStyle = self.fontstyle
+  currentFontStyle.underline = false
+  self.fontstyle = currentFontStyle
 end
 
 -- Initializes a new link label instance.
@@ -77,18 +59,9 @@ function BaseLink:onHover()
     self.fgcolor = self.hvcolor
   end
 
-  local currentItalic = self.fontstyle.italic
-  local currentStrike = self.fontstyle.strike
-  local currentThin = self.fontstyle.thin
-  local currentBold = self.fontstyle.bold
-
-  self.fontstyle = {
-    underline = true,
-    italic = currentItalic,
-    strike = currentStrike,
-    thin = currentThin,
-    bold = currentBold
-  }
+  local currentFontStyle = self.fontstyle
+  currentFontStyle.underline = true
+  self.fontstyle = currentFontStyle
 end
 
 -- Overrides the label onleave event.
@@ -97,18 +70,9 @@ function BaseLink:onLeave()
     self.fgcolor = self.hvcolor
   end
 
-  local currentItalic = self.fontstyle.italic
-  local currentStrike = self.fontstyle.strike
-  local currentThin = self.fontstyle.thin
-  local currentBold = self.fontstyle.bold
-
-  self.fontstyle = {
-    underline = false,
-    italic = currentItalic,
-    strike = currentStrike,
-    thin = currentThin,
-    bold = currentBold
-  }
+  local currentFontStyle = self.fontstyle
+  currentFontStyle.underline = false
+  self.fontstyle = currentFontStyle
 end
 
 --#endregion
@@ -226,9 +190,9 @@ function ToggleSwitch:constructor(parent, checked, x, y, width, height)
     local _width = self.width
     local _height = self.height
     local _imageOn = (_height <= 32) and sys.currentdir .. "\\ecluart\\_on2.png" or
-    sys.currentdir .. "\\ecluart\\_on3.png"
+        sys.currentdir .. "\\ecluart\\_on3.png"
     local _imageOff = (_height <= 32) and sys.currentdir .. "\\ecluart\\_off2.png" or
-    sys.currentdir .. "\\ecluart\\_off3.png"
+        sys.currentdir .. "\\ecluart\\_off3.png"
     self:load(_checked and _imageOn or _imageOff)
     self.width = _width
     self.height = _height
@@ -288,7 +252,7 @@ end
 
 -- Changes a property of all children.
 function ColumnPanel:change(key, value)
-  if type(key) ~= "string" then return end
+  if type(key) ~= "string" then return end -- assert
 
   for _, child in pairs(self.children) do
     child[key] = value
@@ -296,22 +260,50 @@ function ColumnPanel:change(key, value)
 end
 
 -- Rearranges the position all children.
-function ColumnPanel:rearrange()
-  local nexty, nextx = 0, 0
+--function ColumnPanel:rearrange()
+--  local nexty, nextx = 0, 0
 
-  for i = 1, self.rows do
-    self.children[i].y = nexty
-    self.children[i].x = nextx
-    self.children[i].width = self.width
-    nexty = i * (self.children[i].height + self.gap)
-  end
+--  for i = 1, self.rows do
+--    self.children[i].y = nexty
+--   self.children[i].x = nextx
+--    self.children[i].width = self.width
+--    nexty = i * (self.children[i].height + self.gap)
+--  end
 
-  self.height = nexty - self.gap
-end
+--  self.height = nexty - self.gap
+--end
 
 -- Initializes a new column panel instance.
 function uiextension.ColumnPanel(parent, kind, rows, x, y, width, height)
   return ColumnPanel(parent, kind, rows, x, y, width, height)
+end
+
+--#endregion
+
+--#region strikecheckbox
+
+-- Creates a new strike checkbox object.
+local StrikeCheckbox = Object(ui.Checkbox)
+
+-- Overrides the checkbox checked setter.
+function StrikeCheckbox:set_checked(value)
+  super(self).set_checked(self, value)
+
+  local currentFontStyle = self.fontstyle
+  currentFontStyle.strike = self.checked and true or false
+  self.fontstyle = currentFontStyle
+end
+
+-- Overrides the label onclick event.
+function StrikeCheckbox:onClick()
+  local currentFontStyle = self.fontstyle
+  currentFontStyle.strike = self.checked and true or false
+  self.fontstyle = currentFontStyle
+end
+
+-- Initializes a new strike checkbox instance.
+function uiextension.StrikeCheckbox(...)
+  return StrikeCheckbox(...)
 end
 
 --#endregion

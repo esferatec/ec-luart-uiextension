@@ -1,6 +1,6 @@
 # ColumnPanel
 
-Represents a panel control containing a collection of children objects. The onClick event saves the current row.
+Represents a panel control containing a collection of children widgets. The onClick event saves the current row.
 
 ![ColumnPanel](/docs/columnpanel/columnpanel01.png)
 
@@ -20,12 +20,12 @@ ColumnPanel(parent, [kind], [rows], [x], [y], [width], [height])
 
 Parameter | Type | Description
 ---|---|---
-kind | object | Sets the type of children objects. The default is ui.Label.
-rows | number | Sets the total amount of children objects. The default is 1.
+kind | object | Sets the type of children widget. The default is ui.Label.
+rows | number | Sets the total amount of children widgets. The default is 1.
 
 ## Property - GAP
 
-Gets or sets the gap between the children objects.
+Gets or sets the gap between the children widgets.
 
 ```Lua
 ColumnPanel.gap (number)
@@ -33,7 +33,7 @@ ColumnPanel.gap (number)
 
 ## Property - KIND
 
-Gets or sets the type of children objects.
+Gets or sets the type of children widgets.
 
 ```Lua
 ColumnPanel.kind (object)
@@ -41,7 +41,7 @@ ColumnPanel.kind (object)
 
 ## Property - ROWS
 
-Gets or sets the total amount of children objects.
+Gets or sets the total amount of children widgets.
 
 ```Lua
 ColumnPanel.rows (number)
@@ -53,14 +53,6 @@ Changes a property of all children.
 
 ```Lua
 ColumnPanel:change(key, value)
-```
-
-## Methode - REARRANGE
-
-Rearranges the position all children.
-
-```Lua
-ColumnPanel:rearrange()
 ```
 
 ## Example
