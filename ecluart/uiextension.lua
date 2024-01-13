@@ -243,7 +243,12 @@ function ColumnPanel:onCreate()
 
   for i = 1, self.rows do
     self.children[i] = self.kind(self, "", nextx, nexty, self.width, nil)
-    self.children[i].onClick = function() self.currentrow = i end
+    self.children[i].onClick = function()
+      if type(super(self.children[i]).onClick) == "function" then
+        super(self.children[i]).onClick(self.children[i])
+      end;
+      self.currentrow = i
+    end
     nexty = i * (self.children[i].height + self.gap)
   end
 
@@ -258,20 +263,6 @@ function ColumnPanel:change(key, value)
     child[key] = value
   end
 end
-
--- Rearranges the position all children.
---function ColumnPanel:rearrange()
---  local nexty, nextx = 0, 0
-
---  for i = 1, self.rows do
---    self.children[i].y = nexty
---   self.children[i].x = nextx
---    self.children[i].width = self.width
---    nexty = i * (self.children[i].height + self.gap)
---  end
-
---  self.height = nexty - self.gap
---end
 
 -- Initializes a new column panel instance.
 function uiextension.ColumnPanel(parent, kind, rows, x, y, width, height)
