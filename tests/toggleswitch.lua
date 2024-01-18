@@ -13,9 +13,9 @@ win:status(tostring(switch1.checked) .. " / " .. tostring(switch2.checked))
 local button = ui.Button(win, "On/Off", 10, 10, 100, 40)
 
 function button:onClick()
-   switch1.checked = not switch1.checked
-   switch2.checked = not switch2.checked
-   win:status(tostring(switch1.checked) .. " / " .. tostring(switch2.checked))
+  switch1.checked = not switch1.checked
+  switch2.checked = not switch2.checked
+  win:status(tostring(switch1.checked) .. " / " .. tostring(switch2.checked))
 end
 
 ui.run(win):wait()
