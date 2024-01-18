@@ -285,7 +285,7 @@ function StrikeCheckbox:set_checked(value)
   self.fontstyle = currentFontStyle
 end
 
--- Overrides the label onclick event.
+-- Overrides the checkbox onclick event.
 function StrikeCheckbox:onClick()
   local currentFontStyle = self.fontstyle
   currentFontStyle.strike = self.checked and true or false
