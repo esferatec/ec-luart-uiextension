@@ -44,8 +44,9 @@ local BaseLink = Object(ui.Label)
 
 -- Overrides the default label constructor.
 function BaseLink:constructor(...)
-  super(self).constructor(self, ...)
+  super(self).constructor(self,...)
 
+  self.link = ""
   self.vdcolor = 0x551A8B -- visited color
   self.hvcolor = 0x0000EE -- hoover color
   self.fgcolor = self.hvcolor
@@ -85,7 +86,7 @@ local HyperLink = Object(BaseLink)
 -- Overrides the label onclick event.
 function HyperLink:onClick()
   self.fgcolor = self.vdcolor
-  sys.cmd("start " .. self.text, true, true)
+  sys.cmd("start " .. self.link, true, true)
 end
 
 -- Initializes a new hyper link instance.
@@ -104,7 +105,7 @@ local FileLink = Object(BaseLink)
 function FileLink:onClick()
   self.fgcolor = self.vdcolor
 
-  local linkedFile = sys.File(self.text)
+  local linkedFile = sys.File(self.link)
   sys.cmd("explorer /select," .. linkedFile.fullpath, true, true)
 end
 
@@ -124,7 +125,7 @@ local DirectoryLink = Object(BaseLink)
 function DirectoryLink:onClick()
   self.fgcolor = self.vdcolor
 
-  local linkedFolder = sys.Directory(self.text)
+  local linkedFolder = sys.Directory(self.link)
   sys.cmd("explorer /select," .. linkedFolder.fullpath, true, true)
 end
 
