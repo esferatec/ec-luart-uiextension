@@ -231,7 +231,7 @@ function ColumnPanel:constructor(parent, kind, rows, x, y, width, height)
   self.gap = 5
   self.rows = rows or 1
   self.kind = kind or Object(ui.Label)
-  self.children = {}
+  self.items = {}
 
   self.firstrow = 1
   self.lastrow = self.rows
@@ -243,14 +243,14 @@ function ColumnPanel:onCreate()
   local nexty, nextx = 0, 0
 
   for i = 1, self.rows do
-    self.children[i] = self.kind(self, "", nextx, nexty, self.width, nil)
-    self.children[i].onClick = function()
-      if type(super(self.children[i]).onClick) == "function" then
-        super(self.children[i]).onClick(self.children[i])
+    self.items[i] = self.kind(self, "", nextx, nexty, self.width, nil)
+    self.items[i].onClick = function()
+      if type(super(self.items[i]).onClick) == "function" then
+        super(self.items[i]).onClick(self.items[i])
       end;
       self.currentrow = i
     end
-    nexty = i * (self.children[i].height + self.gap)
+    nexty = i * (self.items[i].height + self.gap)
   end
 
   self.height = nexty - self.gap
@@ -260,7 +260,7 @@ end
 function ColumnPanel:change(key, value)
   if type(key) ~= "string" then return end -- assert
 
-  for _, child in pairs(self.children) do
+  for _, child in pairs(self.items) do
     child[key] = value
   end
 end
