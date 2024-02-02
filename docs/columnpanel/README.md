@@ -22,7 +22,7 @@ Parameter | Type | Description
 ---|---|---
 kind | object | Sets the type of children widget. The default is Object(ui.Label).
 rows | number | Sets the total amount of children widgets. The default is 1.
-gap | number | Sets the gap between the children widgets.
+gap | number | Sets the gap between the children widgets. The default ist 5.
 
 ## Property - ITEMS
 
