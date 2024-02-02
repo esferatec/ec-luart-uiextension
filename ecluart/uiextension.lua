@@ -250,6 +250,7 @@ function ColumnPanel:onCreate()
       end;
       self.currentrow = i
     end
+    
     nexty = i * (self.items[i].height + self.gap)
   end
 
