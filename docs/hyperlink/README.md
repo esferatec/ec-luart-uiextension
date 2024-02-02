@@ -15,12 +15,22 @@ The onHover, onLeave and onClick events should not be overridden.
 Initializes a new hyper link instance.
 
 ```Lua
-HyperLink(parent, link, [x], [y], [width], [height])
+HyperLink(parent, caption, [x], [y], [width], [height])
 ```
 
 Parameter | Type | Description
 ---|---|---
-link | string | Sets the external link.
+-- | -- | --
+
+## Property - link
+
+Sets or gets the external link.
+
+```Lua
+HyperLink.link (string)
+```
+
+![hyperlink](/docs/hyperlink/hyperlink01.png)
 
 ## Example
 
@@ -30,7 +40,8 @@ local uiex = require("ecluart.uiextension")
 
 local win = ui.Window("HyperLink", "fixed", 320, 250)
 
-local link = uiex.HyperLink(win, "www.luart.org")
+local link = uiex.HyperLink(win, "LuaRT")
+link.link = "www.luart.org"
 link:center()
 
 ui.run(win):wait()

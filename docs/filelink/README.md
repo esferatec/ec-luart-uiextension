@@ -2,7 +2,7 @@
 
 Represents a text label control that can display an external link. The onClick event will open the file in the file explorer.
 
-![hyperlink](/docs/filelink/filelink01.png)
+![filelink](/docs/filelink/filelink01.png)
 
 **Note:**
 This documentation describes only the additional properties and methods.
@@ -15,12 +15,22 @@ The onHover, onLeave and onClick events should not be overridden.
 Initializes a new file link instance.
 
 ```Lua
-FileLink(parent, link, [x], [y], [width], [height])
+FileLink(parent, caption, [x], [y], [width], [height])
 ```
 
 Parameter | Type | Description
 ---|---|---
-link | string | Sets the external link.
+-- | -- | --
+
+## Property - link
+
+Sets or gets the external link.
+
+```Lua
+HyperLink.link (string)
+```
+
+![filelink](/docs/filelink/filelink01.png)
 
 ## Example
 
@@ -30,10 +40,11 @@ local uiex = require("ecluart.uiextension")
 
 local win = ui.Window("FileLink", "fixed", 320, 250)
 
-local link = uiex.FileLink(win, "C:\\LuaRT\\lua54.dll")
+local link = uiex.FileLink(win, "lua54.dll")
+link.link = "C:\\LuaRT\\lua54.dll"
 link:center()
 
 ui.run(win):wait()
 ```
 
-![hyperlink](/docs/filelink/filelink01.png)
+![filelink](/docs/filelink/filelink01.png)

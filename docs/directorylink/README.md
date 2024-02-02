@@ -2,7 +2,7 @@
 
  Represents a text label control that can display an external link. The onClick event will open the directory in the file explorer.
 
-![hyperlink](/docs/directorylink/directorylink01.png)
+![directorylink](/docs/directorylink/directorylink01.png)
 
 **Note:**
 This documentation describes only the additional properties and methods.
@@ -15,12 +15,22 @@ The onHover, onLeave and onClick events should not be overridden.
 Initializes a new directory link instance.
 
 ```Lua
-DirectoryLink(parent, link, [x], [y], [width], [height])
+DirectoryLink(parent, caption, [x], [y], [width], [height])
 ```
 
 Parameter | Type | Description
 ---|---|---
-link | string | Sets the external link.
+-- | -- | --
+
+## Property - link
+
+Sets or gets the external link.
+
+```Lua
+HyperLink.link (string)
+```
+
+![directorylink](/docs/directorylink/directorylink01.png)
 
 ## Example
 
@@ -30,10 +40,11 @@ local uiex = require("ecluart.uiextension")
 
 local win = ui.Window("DirectoryLink", "fixed", 320, 250)
 
-local link = uiex.DirectoryLink(win, "C:\\LuaRT")
+local link = uiex.DirectoryLink(win, "LuaRT")
+link.link = "C:\\LuaRT"
 link:center()
 
 ui.run(win):wait()
 ```
 
-![hyperlink](/docs/filelink/filelink01.png)
+![directorylink](/docs/directorylink/directorylink01.png)

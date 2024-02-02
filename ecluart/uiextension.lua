@@ -258,7 +258,7 @@ end
 
 -- Changes a property of all children.
 function ColumnPanel:change(key, value)
-  if type(key) ~= "string" then return end -- assert
+  if type(key) ~= "string" then return end
 
   for _, child in pairs(self.items) do
     child[key] = value

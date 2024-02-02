@@ -6,16 +6,16 @@ Represents a checkbox control with a strike-through effect on its label when che
 
 **Note:**
 This documentation describes only the additional properties and methods.
-The standard properties, methods and events can be found in the [LuaRT Label](https://www.luart.org/doc/ui/Label.html) documentation.
+The standard properties, methods and events can be found in the [LuaRT Checkbox](https://www.luart.org/doc/ui/Checkbox.html) documentation.
 
-The onHover, onLeave and onClick events should not be overridden.
+The onClick event should not be overridden.
 
 ## Constructor
 
 Initializes a new stricke checkbox instance.
 
 ```Lua
-StrikeCheckbox(parent, caption, [ x ], [ y ], [ width ], [ height ])
+StrikeCheckbox(parent, caption, [x], [y], [width], [height])
 ```
 
 Parameter | Type | Description

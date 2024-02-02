@@ -3,7 +3,7 @@ local uiex = require("ecluart.uiextension")
 
 local win = ui.Window("HyperLink", "fixed", 320, 250)
 
-local link = uiex.HyperLink(win, "LuaRT.org")
+local link = uiex.HyperLink(win, "LuaRT")
 link.link = "www.luart.org"
 link:center()
 
