@@ -225,10 +225,10 @@ end
 local ColumnPanel = Object(ui.Panel)
 
 -- Overrides the default panel constructor.
-function ColumnPanel:constructor(parent, kind, rows, x, y, width, height)
+function ColumnPanel:constructor(parent, kind, rows, gap, x, y, width, height)
   super(self).constructor(self, parent, x, y, width, height)
 
-  self.gap = 5
+  self.gap = gap or 5
   self.rows = rows or 1
   self.kind = kind or Object(ui.Label)
   self.items = {}
@@ -266,8 +266,8 @@ function ColumnPanel:change(key, value)
 end
 
 -- Initializes a new column panel instance.
-function uiextension.ColumnPanel(parent, kind, rows, x, y, width, height)
-  return ColumnPanel(parent, kind, rows, x, y, width, height)
+function uiextension.ColumnPanel(parent, kind, rows, gap, x, y, width, height)
+  return ColumnPanel(parent, kind, rows, gap, x, y, width, height)
 end
 
 --#endregion

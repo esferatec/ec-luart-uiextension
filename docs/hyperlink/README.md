@@ -22,15 +22,13 @@ Parameter | Type | Description
 ---|---|---
 -- | -- | --
 
-## Property - link
+## Property - LINK
 
 Sets or gets the external link.
 
 ```Lua
 HyperLink.link (string)
 ```
-
-![hyperlink](/docs/hyperlink/hyperlink01.png)
 
 ## Example
 
