@@ -238,6 +238,17 @@ function ColumnPanel:constructor(parent, kind, rows, gap, x, y, width, height)
   self.currentrow = 1
 end
 
+-- Overrides the panel enabled setter.
+function ColumnPanel:set_enabled(value)
+  super(self).set_enabled(self, value)
+
+  for _, item in ipairs(self.items) do
+    if type(item.enabled) ~= "nil" then
+      item.enabled = value
+    end
+  end
+end
+
 -- Overrides the panel oncreate event.
 function ColumnPanel:onCreate()
   local nexty, nextx = 0, 0
