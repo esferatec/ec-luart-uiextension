@@ -1,6 +1,6 @@
 # StrikeCheckbox
 
-Represents a checkbox control with a strike-through effect on its label when checked. The onClick event will change the fontstyle property.
+Represents a checkbox control with a strike-through effect when checked. The onClick event will change the fontstyle property.
 
 ![strikecheckbox](/docs/strikecheckbox/strikecheckbox01.png)
 

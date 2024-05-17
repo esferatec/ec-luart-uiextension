@@ -5,7 +5,7 @@ local table = { "house", "car", "flat", "dog", "cat", "ship" }
 
 local win = ui.Window("ColumnPanel", "fixed", 520, 350)
 
-local column1 = uiex.ColumnPanel(win, Object(ui.Checkbox), 3, 20, 10, 10, 200, 25)
+local column1 = uiex.ColumnPanel(win, ui.Checkbox, 3, 20, 10, 10, 200, 25)
 
 function column1:onCreate()
   super(self).onCreate(self)
@@ -15,7 +15,7 @@ function column1:onCreate()
   column1.items[3].text = "1/8 teaspoon table salt"
 end
 
-local column2 = uiex.ColumnPanel(win, Object(ui.Entry), 10, 5, 250, 10, 200, 440)
+local column2 = uiex.ColumnPanel(win, ui.Entry, 10, 5, 250, 10, 200, 440)
 
 function column2:onCreate()
   super(self).onCreate(self)

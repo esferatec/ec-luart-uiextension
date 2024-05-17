@@ -44,7 +44,7 @@ local BaseLink = Object(ui.Label)
 
 -- Overrides the default label constructor.
 function BaseLink:constructor(...)
-  super(self).constructor(self,...)
+  super(self).constructor(self, ...)
 
   self.link = ""
   self.vdcolor = 0x551A8B -- visited color
@@ -169,56 +169,6 @@ end
 
 --#endregion
 
---#region toggleswitch
-
--- Creates a new toggle switch object.
-local ToggleSwitch = Object(ui.Picture)
-
--- Overrides the default list constructor.
-function ToggleSwitch:constructor(parent, checked, x, y, width, height)
-  super(self).constructor(self, parent, "", x, y, width, height)
-  local _checked = false
-
-  -- Defines a getter method for the property checked.
-  function self:get_checked()
-    return _checked
-  end
-
-  -- Defines a setter method for the property state.
-  function self:set_checked(value)
-    _checked = value or false
-
-    local _width = self.width
-    local _height = self.height
-    local _imageOn = (_height <= 32) and sys.currentdir .. "\\ecluart\\_on2.png" or
-        sys.currentdir .. "\\ecluart\\_on3.png"
-    local _imageOff = (_height <= 32) and sys.currentdir .. "\\ecluart\\_off2.png" or
-        sys.currentdir .. "\\ecluart\\_off3.png"
-    self:load(_checked and _imageOn or _imageOff)
-    self.width = _width
-    self.height = _height
-  end
-
-  self.checked = checked
-end
-
--- Overrides the default image onclick event.
-function ToggleSwitch:onClick()
-  self.checked = not self.checked
-end
-
--- Overrides the default image ondoubleclick event.
-function ToggleSwitch:onDoubleClick()
-  self.checked = not self.checked
-end
-
--- Initializes a new toggle switch instance.
-function uiextension.ToggleSwitch(parent, checked, x, y, width, height)
-  return ToggleSwitch(parent, checked, x, y, width, height)
-end
-
---#endregion
-
 --#region columnpanel
 
 -- Creates a new column panel object.
@@ -230,7 +180,7 @@ function ColumnPanel:constructor(parent, kind, rows, gap, x, y, width, height)
 
   self.gap = gap or 5
   self.rows = rows or 1
-  self.kind = kind or Object(ui.Label)
+  self.kind = kind or ui.Label
   self.items = {}
 
   self.firstrow = 1
@@ -261,7 +211,7 @@ function ColumnPanel:onCreate()
       end;
       self.currentrow = i
     end
-    
+
     nexty = i * (self.items[i].height + self.gap)
   end
 
@@ -294,20 +244,114 @@ function StrikeCheckbox:set_checked(value)
   super(self).set_checked(self, value)
 
   local currentFontStyle = self.fontstyle
-  currentFontStyle.strike = self.checked and true or false
+  currentFontStyle.strike = self.checked
   self.fontstyle = currentFontStyle
 end
 
 -- Overrides the checkbox onclick event.
 function StrikeCheckbox:onClick()
   local currentFontStyle = self.fontstyle
-  currentFontStyle.strike = self.checked and true or false
+  currentFontStyle.strike = self.checked
   self.fontstyle = currentFontStyle
 end
 
 -- Initializes a new strike checkbox instance.
 function uiextension.StrikeCheckbox(...)
   return StrikeCheckbox(...)
+end
+
+--#endregion
+
+--#region strikeentry
+
+-- Creates a new strike entry object.
+local StrikeEntry = Object(ui.Entry)
+
+function StrikeEntry:constructor(parent, caption, x, y, width, height)
+  self._x = x
+  self._y = y
+  self._width = width
+  self._height = height
+
+  self.checkbox = ui.Checkbox(parent, " ", x, y, 16, height)
+  self.checkbox.mother = self
+
+  x = x and x + 16 or 24
+  width = width and width - 16 or width
+  super(self).constructor(self, parent, caption, x, y, width, height)
+
+  -- Overrides the checkbox onclick event.
+  function self.checkbox:onClick()
+    self.mother.checked = self.checked
+  end
+end
+
+function StrikeEntry:get_checked()
+  return self.checkbox.checked
+end
+
+-- Overrides the entry checked setter.
+function StrikeEntry:set_checked(value)
+  self.checkbox.checked = value
+
+  local currentFontStyle = self.fontstyle
+  currentFontStyle.strike = self.checkbox.checked
+  self.fontstyle = currentFontStyle
+
+  self.enabled = not self.checkbox.checked
+end
+
+-- Overrides the entry y setter.
+function StrikeEntry:set_y(value)
+  self._y = value
+  self.checkbox.y = value
+  super(self).set_y(self, value)
+end
+
+-- Overrides the entry y getter.
+function StrikeEntry:get_y()
+  return self._y
+end
+
+-- Overrides the entry x setter.
+function StrikeEntry:set_x(value)
+  self._x = value
+  self.checkbox.x = value
+  super(self).set_x(self, value and value + 16 or value)
+end
+
+-- Overrides the entry x getter.
+function StrikeEntry:get_x()
+  return self._x
+end
+
+-- Overrides the entry width setter.
+function StrikeEntry:set_width(value)
+  self._width = value
+  self.checkbox.width = 16
+  super(self).set_width(self, value and value - 16 or value)
+end
+
+-- Overrides the entry width getter.
+function StrikeEntry:get_width()
+  return self._width
+end
+
+-- Overrides the entry height setter.
+function StrikeEntry:set_height(value)
+  self._height = value
+  self.checkbox.height = value
+  super(self).set_height(self, value)
+end
+
+-- Overrides the entry height getter.
+function StrikeEntry:get_heiht()
+  return self._height
+end
+
+-- Initializes a new strike entry instance.
+function uiextension.StrikeEntry(...)
+  return StrikeEntry(...)
 end
 
 --#endregion

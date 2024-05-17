@@ -5,9 +5,7 @@ It has been designed to simplify and improve the creation of graphical user inte
 
 ![examples](/readme.png)
 
-[![Lua 5.4.6](https://badgen.net/badge/Lua/5.4.6/yellow)](https://github.com/lua/lua)
-[![LuaRT 1.7.0](https://badgen.net/badge/LuaRT/1.7.0/blue)](https://github.com/samyeyo/LuaRT)
-[![LuaCheck 1.1.1](https://badgen.net/badge/LuaCheck/1.1.1/green)](https://github.com/lunarmodules/luacheck)
+[![LuaRT 1.8.0](https://badgen.net/badge/LuaRT/1.8.0/blue)](https://github.com/samyeyo/LuaRT)
 
 ## Features
 
@@ -21,8 +19,8 @@ The module provides the following extension objects:
 | HyperLink | Represents a label control that can display an external link. The onClick event will open the link in the web browser. | uiextension.lua
 | LinkLabel | Represents a label control that can display an internal link. The onClick event can be used to execute any code. | uiextension.lua
 | SelectList | Represents a picture control that represents a on or off switch. The onClick or onDoubleClick event will change the status of the switch. | uiextension.lua
-| StrikeCheckbox | Represents a checkbox control with a strike-through effect on its label when checked. The onClick event will change the fontstyle property. | uiextension.lua
-| ToggleSwitch | Represents a list control containing a collection of selectable items. The onDoubleClick event selects or deselects the item. | uiextension.lua
+| StrikeCheckbox | Represents a checkbox control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
+| StrikeEntry | Represents a entry control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
 
 More detailed descriptions and usage examples can be found in the docs folder.
 
