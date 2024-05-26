@@ -1,11 +1,9 @@
 local ui = require("ui")
 local uiex = require("ecluart.uiextension")
 
-local win = ui.Window("LinkLabel", "fixed", 320, 250)
+local win = ui.Window("LinkCheckbox", "fixed", 320, 250)
 
-local link2 = uiex.LinkLabel(win, "About", 10, 10)
-
-local link = uiex.LinkLabel(win, "About", 10, 10)
+local link = uiex.LinkCheckbox(win, "About", 10, 10)
 link:center()
 link.fontstyle = { bold = true }
 

@@ -6,33 +6,94 @@ local uiextension = {}
 
 --#region linklabel
 
--- Creates a new link label object.
-local LinkLabel = Object(ui.Label)
-
--- Overrides the default label constructor.
-function LinkLabel:constructor(...)
-  super(self).constructor(self, ...)
-  self.cursor = "hand"
-  self.textalign = "left"
-end
-
--- Overrides the label onhover event.
-function LinkLabel:onHover()
-  local currentFontStyle = self.fontstyle
-  currentFontStyle.underline = true
-  self.fontstyle = currentFontStyle
-end
-
--- Overrides the label onleave event.
-function LinkLabel:onLeave()
-  local currentFontStyle = self.fontstyle
-  currentFontStyle.underline = false
-  self.fontstyle = currentFontStyle
-end
-
 -- Initializes a new link label instance.
 function uiextension.LinkLabel(...)
+  -- Creates a new link label object.
+  local LinkLabel = Object(ui.Label)
+
+  -- Overrides the default label constructor.
+  function LinkLabel:constructor(...)
+    super(self).constructor(self, ...)
+    self.cursor = "hand"
+  end
+
+  -- Overrides the label onhover event.
+  function LinkLabel:onHover()
+    local currentFontStyle = self.fontstyle
+    currentFontStyle.underline = true
+    self.fontstyle = currentFontStyle
+  end
+
+  -- Overrides the label onleave event.
+  function LinkLabel:onLeave()
+    local currentFontStyle = self.fontstyle
+    currentFontStyle.underline = false
+    self.fontstyle = currentFontStyle
+  end
+
   return LinkLabel(...)
+end
+
+--#endregion
+
+--#region linkcheckbox
+
+-- Initializes a new link checkbox instance.
+function uiextension.LinkCheckbox(...)
+  -- Creates a new link checkbox object.
+  local LinkCheckbox = Object(ui.Checkbox)
+
+  -- Overrides the default checkbox constructor.
+  function LinkCheckbox:constructor(...)
+    super(self).constructor(self, ...)
+  end
+
+  -- Overrides the checkbox onhover event.
+  function LinkCheckbox:onHover()
+    local currentFontStyle = self.fontstyle
+    currentFontStyle.underline = true
+    self.fontstyle = currentFontStyle
+  end
+
+  -- Overrides the checkbox onleave event.
+  function LinkCheckbox:onLeave()
+    local currentFontStyle = self.fontstyle
+    currentFontStyle.underline = false
+    self.fontstyle = currentFontStyle
+  end
+
+  return LinkCheckbox(...)
+end
+
+--#endregion
+
+--#region linkradiobutton
+
+-- Initializes a new link radiobutton instance.
+function uiextension.LinkRadiobutton(...)
+  -- Creates a new link radiobutton object.
+  local LinkRadiobutton = Object(ui.Radiobutton)
+
+  -- Overrides the default radiobutton constructor.
+  function LinkRadiobutton:constructor(...)
+    super(self).constructor(self, ...)
+  end
+
+  -- Overrides the radiobutton onhover event.
+  function LinkRadiobutton:onHover()
+    local currentFontStyle = self.fontstyle
+    currentFontStyle.underline = true
+    self.fontstyle = currentFontStyle
+  end
+
+  -- Overrides the radiobutton onleave event.
+  function LinkRadiobutton:onLeave()
+    local currentFontStyle = self.fontstyle
+    currentFontStyle.underline = false
+    self.fontstyle = currentFontStyle
+  end
+
+  return LinkRadiobutton(...)
 end
 
 --#endregion
@@ -51,7 +112,6 @@ function BaseLink:constructor(...)
   self.hvcolor = 0x0000EE -- hoover color
   self.fgcolor = self.hvcolor
   self.cursor = "hand"
-  self.textalign = "left"
 end
 
 -- Overrides the label onhover event.
@@ -80,17 +140,17 @@ end
 
 --#region hyperlink
 
--- Creates a new hyper link object.
-local HyperLink = Object(BaseLink)
-
--- Overrides the label onclick event.
-function HyperLink:onClick()
-  self.fgcolor = self.vdcolor
-  sys.cmd("start " .. self.link, true, true)
-end
-
 -- Initializes a new hyper link instance.
 function uiextension.HyperLink(...)
+  -- Creates a new hyper link object.
+  local HyperLink = Object(BaseLink)
+
+  -- Overrides the label onclick event.
+  function HyperLink:onClick()
+    self.fgcolor = self.vdcolor
+    sys.cmd("start " .. self.link, true, true)
+  end
+
   return HyperLink(...)
 end
 
@@ -98,19 +158,18 @@ end
 
 --#region filelink
 
--- Creates a new file link object.
-local FileLink = Object(BaseLink)
-
--- Overrides the label onclick event.
-function FileLink:onClick()
-  self.fgcolor = self.vdcolor
-
-  local linkedFile = sys.File(self.link)
-  sys.cmd("explorer /select," .. linkedFile.fullpath, true, true)
-end
-
 -- Initializes a new file link instance.
 function uiextension.FileLink(...)
+  -- Creates a new file link object.
+  local FileLink = Object(BaseLink)
+
+  -- Overrides the label onclick event.
+  function FileLink:onClick()
+    self.fgcolor = self.vdcolor
+    local linkedFile = sys.File(self.link)
+    sys.cmd("explorer /select," .. linkedFile.fullpath, true, true)
+  end
+
   return FileLink(...)
 end
 
@@ -118,19 +177,18 @@ end
 
 --#region directorylink
 
--- Creates a new directory link object.
-local DirectoryLink = Object(BaseLink)
-
--- Overrides the label onclick event.
-function DirectoryLink:onClick()
-  self.fgcolor = self.vdcolor
-
-  local linkedFolder = sys.Directory(self.link)
-  sys.cmd("explorer /select," .. linkedFolder.fullpath, true, true)
-end
-
 -- Initializes a new directory link instance.
 function uiextension.DirectoryLink(...)
+  -- Creates a new directory link object.
+  local DirectoryLink = Object(BaseLink)
+
+  -- Overrides the label onclick event.
+  function DirectoryLink:onClick()
+    self.fgcolor = self.vdcolor
+    local linkedFolder = sys.Directory(self.link)
+    sys.cmd("explorer /select," .. linkedFolder.fullpath, true, true)
+  end
+
   return DirectoryLink(...)
 end
 
@@ -236,27 +294,27 @@ end
 
 --#region strikecheckbox
 
--- Creates a new strike checkbox object.
-local StrikeCheckbox = Object(ui.Checkbox)
-
--- Overrides the checkbox checked setter.
-function StrikeCheckbox:set_checked(value)
-  super(self).set_checked(self, value)
-
-  local currentFontStyle = self.fontstyle
-  currentFontStyle.strike = self.checked
-  self.fontstyle = currentFontStyle
-end
-
--- Overrides the checkbox onclick event.
-function StrikeCheckbox:onClick()
-  local currentFontStyle = self.fontstyle
-  currentFontStyle.strike = self.checked
-  self.fontstyle = currentFontStyle
-end
-
 -- Initializes a new strike checkbox instance.
 function uiextension.StrikeCheckbox(...)
+  -- Creates a new strike checkbox object.
+  local StrikeCheckbox = Object(ui.Checkbox)
+
+  -- Overrides the checkbox checked setter.
+  function StrikeCheckbox:set_checked(value)
+    super(self).set_checked(self, value)
+
+    local currentFontStyle = self.fontstyle
+    currentFontStyle.strike = self.checked
+    self.fontstyle = currentFontStyle
+  end
+
+  -- Overrides the checkbox onclick event.
+  function StrikeCheckbox:onClick()
+    local currentFontStyle = self.fontstyle
+    currentFontStyle.strike = self.checked
+    self.fontstyle = currentFontStyle
+  end
+
   return StrikeCheckbox(...)
 end
 
@@ -264,94 +322,278 @@ end
 
 --#region strikeentry
 
--- Creates a new strike entry object.
-local StrikeEntry = Object(ui.Entry)
-
-function StrikeEntry:constructor(parent, caption, x, y, width, height)
-  self._x = x
-  self._y = y
-  self._width = width
-  self._height = height
-
-  self.checkbox = ui.Checkbox(parent, " ", x, y, 16, height)
-  self.checkbox.mother = self
-
-  x = x and x + 16 or 24
-  width = width and width - 16 or width
-  super(self).constructor(self, parent, caption, x, y, width, height)
-
-  -- Overrides the checkbox onclick event.
-  function self.checkbox:onClick()
-    self.mother.checked = self.checked
-  end
-end
-
-function StrikeEntry:get_checked()
-  return self.checkbox.checked
-end
-
--- Overrides the entry checked setter.
-function StrikeEntry:set_checked(value)
-  self.checkbox.checked = value
-
-  local currentFontStyle = self.fontstyle
-  currentFontStyle.strike = self.checkbox.checked
-  self.fontstyle = currentFontStyle
-
-  self.enabled = not self.checkbox.checked
-end
-
--- Overrides the entry y setter.
-function StrikeEntry:set_y(value)
-  self._y = value
-  self.checkbox.y = value
-  super(self).set_y(self, value)
-end
-
--- Overrides the entry y getter.
-function StrikeEntry:get_y()
-  return self._y
-end
-
--- Overrides the entry x setter.
-function StrikeEntry:set_x(value)
-  self._x = value
-  self.checkbox.x = value
-  super(self).set_x(self, value and value + 16 or value)
-end
-
--- Overrides the entry x getter.
-function StrikeEntry:get_x()
-  return self._x
-end
-
--- Overrides the entry width setter.
-function StrikeEntry:set_width(value)
-  self._width = value
-  self.checkbox.width = 16
-  super(self).set_width(self, value and value - 16 or value)
-end
-
--- Overrides the entry width getter.
-function StrikeEntry:get_width()
-  return self._width
-end
-
--- Overrides the entry height setter.
-function StrikeEntry:set_height(value)
-  self._height = value
-  self.checkbox.height = value
-  super(self).set_height(self, value)
-end
-
--- Overrides the entry height getter.
-function StrikeEntry:get_heiht()
-  return self._height
-end
-
 -- Initializes a new strike entry instance.
 function uiextension.StrikeEntry(...)
+  -- Creates a new strike entry object.
+  local StrikeEntry = Object(ui.Entry)
+
+  -- Overrides the default entry constructor.
+  function StrikeEntry:constructor(parent, caption, x, y, width, height)
+    local _x = x
+    local _y = y
+    local _width = width
+    local _height = height
+
+    self.checkbox = ui.Checkbox(parent, " ", x, y, 16, height)
+    self.checkbox.mother = self
+
+    x = (x and x + self.checkbox.width) or 24
+    width = (width and width - self.checkbox.width) or width
+
+    super(self).constructor(self, parent, caption, x, y, width, height)
+
+    -- Creates a entry checked setter.
+    function StrikeEntry:set_checked(value)
+      self.checkbox.checked = value
+
+      local currentFontStyle = self.fontstyle
+      currentFontStyle.strike = self.checkbox.checked
+      self.fontstyle = currentFontStyle
+
+      self.enabled = not self.checkbox.checked
+    end
+
+    -- Creates a entry checked getter.
+    function self:get_checked()
+      return self.checkbox.checked
+    end
+
+    -- Overrides the entry y setter.
+    function StrikeEntry:set_y(value)
+      _y = value
+      self.checkbox.y = value
+      super(self).set_y(self, value)
+    end
+
+    -- Overrides the entry y getter.
+    function self:get_y()
+      return _y
+    end
+
+    -- Overrides the entry x setter.
+    function self:set_x(value)
+      _x = value
+      self.checkbox.x = value
+      super(self).set_x(self, value and value + 16 or value)
+    end
+
+    -- Overrides the entry x getter.
+    function self:get_x()
+      return _x
+    end
+
+    -- Overrides the entry width setter.
+    function self:set_width(value)
+      _width = value
+      self.checkbox.width = 16
+      super(self).set_width(self, value and value - 16 or value)
+    end
+
+    -- Overrides the entry width getter.
+    function self:get_width()
+      return _width
+    end
+
+    -- Overrides the entry height setter.
+    function self:set_height(value)
+      _height = value
+      self.checkbox.height = value
+      super(self).set_height(self, value)
+    end
+
+    -- Overrides the entry height getter.
+    function StrikeEntry:get_height()
+      return _height
+    end
+
+    -- Overrides the checkbox onclick event.
+    function self.checkbox:onClick()
+      self.mother.checked = self.checked
+    end
+  end
+
   return StrikeEntry(...)
+end
+
+--#endregion
+
+--#region strikeedit
+
+-- Initializes a new strike entry instance.
+function uiextension.StrikeEdit(...)
+  -- Creates a new strike edit object.
+  local StrikeEdit = Object(ui.Edit)
+
+  -- Overrides the default edit constructor.
+  function StrikeEdit:constructor(parent, text, x, y, width, height)
+    local _x = x
+    local _y = y
+    local _width = width
+    local _height = height
+
+    self.checkbox = ui.Checkbox(parent, "", x, y, 16, 16)
+    self.checkbox.mother = self
+
+    x = (x and x + self.checkbox.width) or 24
+    width = (width and width - self.checkbox.width) or width
+    height = (height and height) or self.checkbox.height
+
+    super(self).constructor(self, parent, text, x, y, width, height)
+    self.border = false
+    self.rtf = false
+    self.wordwrap = true
+
+    -- Creates a edit checked setter.
+    function self:set_checked(value)
+      self.checkbox.checked = value
+
+      self.caret = 1
+
+      local currentFontStyle = self.fontstyle
+      currentFontStyle.strike = self.checkbox.checked
+      self.fontstyle = currentFontStyle
+
+      self.enabled = not self.checkbox.checked
+    end
+
+    -- Creates a edit checked getter.
+    function self:get_checked()
+      return self.checkbox.checked
+    end
+
+    -- Overrides the edit y setter.
+    function self:set_y(value)
+      _y = value
+      self.checkbox.y = value
+      super(self).set_y(self, value)
+    end
+
+    -- Overrides the edit y getter.
+    function StrikeEdit:get_y()
+      return _y
+    end
+
+    -- Overrides the edit x setter.
+    function StrikeEdit:set_x(value)
+      _x = value
+      self.checkbox.x = value
+      super(self).set_x(self, value and value + 16 or value)
+    end
+
+    -- Overrides the edit x getter.
+    function StrikeEdit:get_x()
+      return _x
+    end
+
+    -- Overrides the edit width setter.
+    function StrikeEdit:set_width(value)
+      _width = value
+      self.checkbox.width = 16
+      super(self).set_width(self, value and value - 16 or value)
+    end
+
+    -- Overrides the edit width getter.
+    function StrikeEdit:get_width()
+      return _width
+    end
+
+    -- Overrides the edit height setter.
+    function StrikeEdit:set_height(value)
+      _height = value
+      self.checkbox.height = value
+      super(self).set_height(self, value)
+    end
+
+    -- Overrides the edit height getter.
+    function StrikeEdit:get_height()
+      return _height
+    end
+
+    -- Overrides the checkbox onclick event.
+    function self.checkbox:onClick()
+      self.mother.checked = self.checked
+    end
+  end
+
+  return StrikeEdit(...)
+end
+
+--#endregion
+
+--#region advancedcheckbox
+
+-- Initializes a new strike checkbox instance.
+function uiextension.AdvancedCheckbox(...)
+  -- Creates a new strike checkbox object.
+  local AdvancedCheckbox = Object(ui.Checkbox)
+
+  -- Overrides the default checkbox constructor.
+  function AdvancedCheckbox:constructor(...)
+    super(self).constructor(self, ...)
+
+    self.edit = ui.Edit(self.parent, self.text, self.x, self.y, self.width, self.height)
+    self.edit.mother = self
+    self.edit.visible = false
+
+    -- Overrides the checkbox checked setter.
+    function self:set_checked(value)
+      super(self).set_checked(self, value)
+
+      local currentFontStyle = self.fontstyle
+      currentFontStyle.strike = self.checked
+      self.fontstyle = currentFontStyle
+    end
+
+    -- Overrides the checkbox onclick event.
+    function self:onClick()
+      local currentFontStyle = self.fontstyle
+      currentFontStyle.strike = self.checked
+      self.fontstyle = currentFontStyle
+    end
+
+    -- Overrides the checkbox onleave event.
+    function self:onLeave()
+      if self.checked then
+        self.edit.enabled = false
+        self.edit.visible = false
+      end
+    end
+
+    -- Overrides the checkbox onhover event.
+    function self:onHover(x, y)
+      if x <= 16 and y <= 16 then
+        self.edit.visible = false
+        return
+      end
+
+      if x >= 16 and not self.edit.visible then
+        self.edit.text = self.text
+        self.edit.x = self.x + 16
+        self.edit.y = self.y + 3
+        self.edit.width = self.width
+        self.edit.height = self.height * 3
+        self.edit.border = false
+        self.edit.rtf = false
+        self.edit.wordwrap = true
+        self.edit.fontstyle = self.fontstyle
+        self.edit.caret = 1
+        self.edit.enabled = not self.checked
+        self.edit.visible = true
+        self.edit:tofront()
+      end
+    end
+
+    -- Overrides the edit onleave event.
+    function self.edit:onLeave()
+      if self.enabled then
+        self.mother.text = self.text
+      end
+      self.enabled = false
+      self.visible = false
+    end
+  end
+
+  return AdvancedCheckbox(...)
 end
 
 --#endregion
