@@ -13,14 +13,18 @@ The module provides the following extension objects:
 
 | Name | Description | Module |
 | --- | --- | --- |
+| AdvancedCheckbox | Represents a checkbox control with a strike-through effect when checked. The onClick event will change the fontstyle property. When the user moves the mouse pointer over the checkbox, an edit control appears. to edit the content. | uiextension.lua
 | ColumnPanel | Represents a panel control containing a collection of children widgets. The onClick event saves the current row. | uiextension.lua
 | DirectoryLink | Represents a label control that can display an external link. The onClick event will open the directory in the file explorer. | uiextension.lua
 | FileLink | Represents a label control that can display an external link. The onClick event will open the file in the file explorer. | uiextension.lua
 | HyperLink | Represents a label control that can display an external link. The onClick event will open the link in the web browser. | uiextension.lua
+| LinkCheckbox | Represents a checkbox control that can display an internal link. The onClick event can be used to execute any code. | uiextension.lua
 | LinkLabel | Represents a label control that can display an internal link. The onClick event can be used to execute any code. | uiextension.lua
 | SelectList | Represents a picture control that represents a on or off switch. The onClick or onDoubleClick event will change the status of the switch. | uiextension.lua
 | StrikeCheckbox | Represents a checkbox control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
+| StrikeEdit | Represents a edit control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
 | StrikeEntry | Represents a entry control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
+
 
 More detailed descriptions and usage examples can be found in the docs folder.
 
