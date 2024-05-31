@@ -12,7 +12,7 @@ The onClick event should not be overridden.
 
 ## Constructor
 
-Initializes a new stricke entry instance.
+Initializes a new stricke edit instance.
 
 ```Lua
 StrikeEdit(parent, caption, [x], [y], [width], [height])

@@ -6,21 +6,21 @@ Represents a checkbox control that can display an internal link. The onClick eve
 
 **Note:**
 This documentation describes only the additional properties and methods.
-The standard properties, methods and events can be found in the [LuaRT Label](https://www.luart.org/doc/ui/Label.html) documentation.
+The standard properties, methods and events can be found in the [LuaRT Checkbox](https://www.luart.org/doc/ui/Checkbox.html) documentation.
 
 The onHover and onLeave events should not be overridden.
 
 ## Constructor
 
-Initializes a new link label instance.
+Initializes a new link checkbox instance.
 
 ```Lua
-LinkCheckbox(parent, link, [x], [y], [width], [height])
+LinkCheckbox(parent, caption, [x], [y], [width], [height])
 ```
 
 Parameter | Type | Description
 ---|---|---
-link | string | Sets the internal link.
+-- | -- | --
 
 ## Example
 

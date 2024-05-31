@@ -27,7 +27,7 @@ Parameter | Type | Description
 Sets or gets the external link.
 
 ```Lua
-HyperLink.link (string)
+FileLink.link (string)
 ```
 
 ## Example

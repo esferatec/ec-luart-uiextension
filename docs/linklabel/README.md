@@ -15,12 +15,12 @@ The onHover and onLeave events should not be overridden.
 Initializes a new link label instance.
 
 ```Lua
-LinkLabel(parent, link, [x], [y], [width], [height])
+LinkLabel(parent, caption, [x], [y], [width], [height])
 ```
 
 Parameter | Type | Description
 ---|---|---
-link | string | Sets the internal link.
+-- | -- | --
 
 ## Example
 
