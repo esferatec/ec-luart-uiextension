@@ -320,7 +320,7 @@ end
 
 --#endregion
 
---#region strikeentry ##
+--#region strikeentry
 
 -- Initializes a new strike entry instance.
 function uiextension.StrikeEntry(...)
@@ -329,11 +329,6 @@ function uiextension.StrikeEntry(...)
 
   -- Overrides the default entry constructor.
   function StrikeEntry:constructor(parent, caption, x, y, width, height)
-    local _x = x
-    local _y = y
-    local _width = width
-    local _height = height
-
     self.checkbox = ui.Checkbox(parent, " ", x, y, 16, height)
     self.checkbox.mother = self
 
@@ -349,8 +344,6 @@ function uiextension.StrikeEntry(...)
       local currentFontStyle = self.fontstyle
       currentFontStyle.strike = self.checkbox.checked
       self.fontstyle = currentFontStyle
-
-      self.enabled = not self.checkbox.checked
     end
 
     -- Creates a entry checked getter.
@@ -360,50 +353,79 @@ function uiextension.StrikeEntry(...)
 
     -- Overrides the entry y setter.
     function StrikeEntry:set_y(value)
-      _y = value
-      self.checkbox.y = value
       super(self).set_y(self, value)
-    end
-
-    -- Overrides the entry y getter.
-    function self:get_y()
-      return _y
+      self.checkbox.y = value
     end
 
     -- Overrides the entry x setter.
     function self:set_x(value)
-      _x = value
+      super(self).set_x(self, value + self.checkbox.width)
       self.checkbox.x = value
-      super(self).set_x(self, value and value + 16 or value)
     end
 
     -- Overrides the entry x getter.
     function self:get_x()
-      return _x
+      return self.checkbox.x
     end
 
     -- Overrides the entry width setter.
     function self:set_width(value)
-      _width = value
-      self.checkbox.width = 16
-      super(self).set_width(self, value and value - 16 or value)
+      super(self).set_width(self, value - self.checkbox.width)
+      self.checkbox.width = self.checkbox.width
     end
 
     -- Overrides the entry width getter.
     function self:get_width()
-      return _width
+      return super(self).get_width(self) + self.checkbox.width
     end
 
     -- Overrides the entry height setter.
     function self:set_height(value)
-      _height = value
-      self.checkbox.height = value
       super(self).set_height(self, value)
+      self.checkbox.height = value
     end
 
-    -- Overrides the entry height getter.
-    function StrikeEntry:get_height()
-      return _height
+    -- Overrides the entry visible setter.
+    function self:set_visible(value)
+      super(self).set_visible(self, value)
+      self.checkbox.visible = value
+    end
+
+    -- Overrides the entry enabled setter.
+    function self:set_enabled(value)
+      super(self).set_enabled(self, value)
+      self.checkbox.enabled = value
+    end
+
+    -- Overrides the entry hide method.
+    function self:hide()
+      super(self).hide(self)
+      self.checkbox:hide()
+    end
+
+    -- Overrides the entry show method.
+    function self:show()
+      super(self).show(self)
+      self.checkbox:show()
+    end
+
+    -- Overrides the entry tofront method.
+    function self:tofront()
+      super(self).tofront(self)
+      self.checkbox:tofront()
+    end
+
+    -- Overrides the entry toback method.
+    function self:toback()
+      super(self).toback(self)
+      self.checkbox:toback()
+    end
+
+    -- Overrides the entry onclick event.
+    function self:onClick()
+      if self.checkbox.checked then
+        self.checkbox:show()
+      end
     end
 
     -- Overrides the checkbox onclick event.
@@ -417,7 +439,7 @@ end
 
 --#endregion
 
---#region strikeedit ##
+--#region strikeedit
 
 -- Initializes a new strike entry instance.
 function uiextension.StrikeEdit(...)
@@ -426,11 +448,6 @@ function uiextension.StrikeEdit(...)
 
   -- Overrides the default edit constructor.
   function StrikeEdit:constructor(parent, text, x, y, width, height)
-    local _x = x
-    local _y = y
-    local _width = width
-    local _height = height
-
     self.checkbox = ui.Checkbox(parent, "", x, y, 16, 16)
     self.checkbox.mother = self
 
@@ -452,8 +469,6 @@ function uiextension.StrikeEdit(...)
       local currentFontStyle = self.fontstyle
       currentFontStyle.strike = self.checkbox.checked
       self.fontstyle = currentFontStyle
-
-      self.enabled = not self.checkbox.checked
     end
 
     -- Creates a edit checked getter.
@@ -463,50 +478,67 @@ function uiextension.StrikeEdit(...)
 
     -- Overrides the edit y setter.
     function self:set_y(value)
-      _y = value
-      self.checkbox.y = value
       super(self).set_y(self, value)
-    end
-
-    -- Overrides the edit y getter.
-    function StrikeEdit:get_y()
-      return _y
+      self.checkbox.y = value
     end
 
     -- Overrides the edit x setter.
     function StrikeEdit:set_x(value)
-      _x = value
+      super(self).set_x(self, value + self.checkbox.width)
       self.checkbox.x = value
-      super(self).set_x(self, value and value + 16 or value)
     end
 
     -- Overrides the edit x getter.
     function StrikeEdit:get_x()
-      return _x
+      return self.checkbox.x
     end
 
     -- Overrides the edit width setter.
     function StrikeEdit:set_width(value)
-      _width = value
-      self.checkbox.width = 16
-      super(self).set_width(self, value and value - 16 or value)
+      super(self).set_width(self, value - self.checkbox.width)
+      self.checkbox.width = self.checkbox.width
     end
 
     -- Overrides the edit width getter.
     function StrikeEdit:get_width()
-      return _width
+      return super(self).get_width(self) + self.checkbox.width
     end
 
     -- Overrides the edit height setter.
     function StrikeEdit:set_height(value)
-      _height = value
-      self.checkbox.height = value
       super(self).set_height(self, value)
+      self.checkbox.height = value
     end
 
-    -- Overrides the edit height getter.
-    function StrikeEdit:get_height()
-      return _height
+    -- Overrides the edit hide method.
+    function self:hide()
+      super(self).hide(self)
+      self.checkbox:hide()
+    end
+
+    -- Overrides the edit show method.
+    function self:show()
+      super(self).show(self)
+      self.checkbox:show()
+    end
+
+    -- Overrides the edit tofront method.
+    function self:tofront()
+      super(self).tofront(self)
+      self.checkbox:tofront()
+    end
+
+    -- Overrides the edit toback method.
+    function self:toback()
+      super(self).toback(self)
+      self.checkbox:toback()
+    end
+
+    -- Overrides the edit onclick event.
+    function self:onClick()
+      if self.checkbox.checked then
+        self.checkbox:show()
+      end
     end
 
     -- Overrides the checkbox onclick event.
