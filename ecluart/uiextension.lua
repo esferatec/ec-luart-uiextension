@@ -227,7 +227,7 @@ end
 
 --#endregion
 
---#region columnpanel
+--#region columnpanel ##
 
 -- Creates a new column panel object.
 local ColumnPanel = Object(ui.Panel)
@@ -320,7 +320,7 @@ end
 
 --#endregion
 
---#region strikeentry
+--#region strikeentry ##
 
 -- Initializes a new strike entry instance.
 function uiextension.StrikeEntry(...)
@@ -417,7 +417,7 @@ end
 
 --#endregion
 
---#region strikeedit
+--#region strikeedit ##
 
 -- Initializes a new strike entry instance.
 function uiextension.StrikeEdit(...)
@@ -520,7 +520,7 @@ end
 
 --#endregion
 
---#region advancedcheckbox
+--#region advancedcheckbox ##
 
 -- Initializes a new strike checkbox instance.
 function uiextension.AdvancedCheckbox(...)
@@ -594,6 +594,402 @@ function uiextension.AdvancedCheckbox(...)
   end
 
   return AdvancedCheckbox(...)
+end
+
+--#endregion
+
+--#region fileentry
+
+-- Initializes a new file entry instance.
+function uiextension.FileEntry(...)
+  local FileEntry = Object(ui.Entry)
+
+  -- Overrides the default entry constructor.
+  function FileEntry:constructor(...)
+    super(self).constructor(self, ...)
+
+    self.button = ui.Button(self.parent, "...")
+    self.button.mother = self
+
+    self.gap = 4
+    self.width = self.width - self.button.width - self.gap
+    self.button.height = self.height
+    self.button.x = self.x + self.width + self.gap
+    self.button.y = self.y
+
+    -- Overrides the entry x setter.
+    function self:set_x(value)
+      super(self).set_x(self, value)
+      self.button.x = value + super(self).get_width(self) + self.gap
+    end
+
+    -- Overrides the entry y setter.
+    function self:set_y(value)
+      super(self).set_y(self, value)
+      self.button.y = value
+    end
+
+    -- Overrides the entry width setter.
+    function self:set_width(value)
+      super(self).set_width(self, value - self.button.width - self.gap)
+      self.button.x = self.x + super(self).get_width(self) + self.gap
+    end
+
+    -- Overrides the entry width getter.
+    function self:get_width()
+      return super(self).get_width(self) + self.gap + self.button.width
+    end
+
+    -- Overrides the entry height setter.
+    function self:set_height(value)
+      super(self).set_height(self, value)
+      self.button.height = value
+    end
+
+    -- Overrides the entry visible setter.
+    function self:set_visible(value)
+      super(self).set_visible(self, value)
+      self.button.visible = value
+    end
+
+    -- Overrides the entry enabled setter.
+    function self:set_enabled(value)
+      super(self).set_enabled(self, value)
+      self.button.enabled = value
+    end
+
+    -- Overrides the entry hide method.
+    function self:hide()
+      super(self).hide(self)
+      self.button:hide()
+    end
+
+    -- Overrides the entry show method.
+    function self:show()
+      super(self).show(self)
+      self.button:show()
+    end
+
+    -- Overrides the entry tofront method.
+    function self:tofront()
+      super(self).tofront(self)
+      self.button:tofront()
+    end
+
+    -- Overrides the entry toback method.
+    function self:toback()
+      super(self).toback(self)
+      self.button:toback()
+    end
+
+    -- Overrides the button onclick event.
+    function self.button:onClick()
+      local file = ui.opendialog()
+
+      if file ~= nil then
+        self.mother.text = file.fullpath
+      end
+    end
+  end
+
+  return FileEntry(...)
+end
+
+--#endregion
+
+--#region filelabel
+
+-- Initializes a new file label instance.
+function uiextension.FileLabel(...)
+  local FileLabel = Object(ui.Label)
+
+  -- Overrides the default label constructor.
+  function FileLabel:constructor(...)
+    super(self).constructor(self, ...)
+
+    self.button = ui.Button(self.parent, "...")
+    self.button.mother = self
+
+    self.gap = 4
+    self.width = self.width - self.button.width - self.gap
+    self.button.height = self.height
+    self.button.x = self.x + self.width + self.gap
+    self.button.y = self.y
+
+    -- Overrides the label x setter.
+    function self:set_x(value)
+      super(self).set_x(self, value)
+      self.button.x = value + super(self).get_width(self) + self.gap
+    end
+
+    -- Overrides the label y setter.
+    function self:set_y(value)
+      super(self).set_y(self, value)
+      self.button.y = value
+    end
+
+    -- Overrides the label width setter.
+    function self:set_width(value)
+      super(self).set_width(self, value - self.button.width - self.gap)
+      self.button.x = self.x + super(self).get_width(self) + self.gap
+    end
+
+    -- Overrides the label width getter.
+    function self:get_width()
+      return super(self).get_width(self) + self.gap + self.button.width
+    end
+
+    -- Overrides the label height setter.
+    function self:set_height(value)
+      super(self).set_height(self, value)
+      self.button.height = value
+    end
+
+    -- Overrides the label visible setter.
+    function self:set_visible(value)
+      super(self).set_visible(self, value)
+      self.button.visible = value
+    end
+
+    -- Overrides the label enabled setter.
+    function self:set_enabled(value)
+      super(self).set_enabled(self, value)
+      self.button.enabled = value
+    end
+
+    -- Overrides the label hide method.
+    function self:hide()
+      super(self).hide(self)
+      self.button:hide()
+    end
+
+    -- Overrides the label show method.
+    function self:show()
+      super(self).show(self)
+      self.button:show()
+    end
+
+    -- Overrides the label tofront method.
+    function self:tofront()
+      super(self).tofront(self)
+      self.button:tofront()
+    end
+
+    -- Overrides the label toback method.
+    function self:toback()
+      super(self).toback(self)
+      self.button:toback()
+    end
+
+    -- Overrides the button onclick event.
+    function self.button:onClick()
+      local file = ui.opendialog()
+
+      if file ~= nil then
+        self.mother.text = file.fullpath
+      end
+    end
+  end
+
+  return FileLabel(...)
+end
+
+--#endregion
+
+--#region directoryentry
+
+-- Initializes a new directory entry instance.
+function uiextension.DirectoryEntry(...)
+  local DirectoryEntry = Object(ui.Entry)
+
+  -- Overrides the default entry constructor.
+  function DirectoryEntry:constructor(...)
+    super(self).constructor(self, ...)
+
+    self.button = ui.Button(self.parent, "...")
+    self.button.mother = self
+
+    self.gap = 4
+    self.width = self.width - self.button.width - self.gap
+    self.button.height = self.height
+    self.button.x = self.x + self.width + self.gap
+    self.button.y = self.y
+
+    -- Overrides the entry x setter.
+    function self:set_x(value)
+      super(self).set_x(self, value)
+      self.button.x = value + super(self).get_width(self) + self.gap
+    end
+
+    -- Overrides the entry y setter.
+    function self:set_y(value)
+      super(self).set_y(self, value)
+      self.button.y = value
+    end
+
+    -- Overrides the entry width setter.
+    function self:set_width(value)
+      super(self).set_width(self, value - self.button.width - self.gap)
+      self.button.x = self.x + super(self).get_width(self) + self.gap
+    end
+
+    -- Overrides the entry width getter.
+    function self:get_width()
+      return super(self).get_width(self) + self.gap + self.button.width
+    end
+
+    -- Overrides the entry height setter.
+    function self:set_height(value)
+      super(self).set_height(self, value)
+      self.button.height = value
+    end
+
+    -- Overrides the entry visible setter.
+    function self:set_visible(value)
+      super(self).set_visible(self, value)
+      self.button.visible = value
+    end
+
+    -- Overrides the entry enabled setter.
+    function self:set_enabled(value)
+      super(self).set_enabled(self, value)
+      self.button.enabled = value
+    end
+
+    -- Overrides the entry hide method.
+    function self:hide()
+      super(self).hide(self)
+      self.button:hide()
+    end
+
+    -- Overrides the entry show method.
+    function self:show()
+      super(self).show(self)
+      self.button:show()
+    end
+
+    -- Overrides the entry tofront method.
+    function self:tofront()
+      super(self).tofront(self)
+      self.button:tofront()
+    end
+
+    -- Overrides the entry toback method.
+    function self:toback()
+      super(self).toback(self)
+      self.button:toback()
+    end
+
+    -- Overrides the button onclick event.
+    function self.button:onClick()
+      local directory = ui.dirdialog()
+
+      if directory ~= nil then
+        self.mother.text = directory.fullpath
+      end
+    end
+  end
+
+  return DirectoryEntry(...)
+end
+
+--#endregion
+
+--#region directorylabel
+
+-- Initializes a new directory label instance.
+function uiextension.DirectoryLabel(...)
+  local DirectoryLabel = Object(ui.Label)
+
+  -- Overrides the default label constructor.
+  function DirectoryLabel:constructor(...)
+    super(self).constructor(self, ...)
+
+    self.button = ui.Button(self.parent, "...")
+    self.button.mother = self
+
+    self.gap = 4
+    self.width = self.width - self.button.width - self.gap
+    self.button.height = self.height
+    self.button.x = self.x + self.width + self.gap
+    self.button.y = self.y
+
+    -- Overrides the label x setter.
+    function self:set_x(value)
+      super(self).set_x(self, value)
+      self.button.x = value + super(self).get_width(self) + self.gap
+    end
+
+    -- Overrides the label y setter.
+    function self:set_y(value)
+      super(self).set_y(self, value)
+      self.button.y = value
+    end
+
+    -- Overrides the label width setter.
+    function self:set_width(value)
+      super(self).set_width(self, value - self.button.width - self.gap)
+      self.button.x = self.x + super(self).get_width(self) + self.gap
+    end
+
+    -- Overrides the label width getter.
+    function self:get_width()
+      return super(self).get_width(self) + self.gap + self.button.width
+    end
+
+    -- Overrides the label height setter.
+    function self:set_height(value)
+      super(self).set_height(self, value)
+      self.button.height = value
+    end
+
+    -- Overrides the label visible setter.
+    function self:set_visible(value)
+      super(self).set_visible(self, value)
+      self.button.visible = value
+    end
+
+    -- Overrides the label enabled setter.
+    function self:set_enabled(value)
+      super(self).set_enabled(self, value)
+      self.button.enabled = value
+    end
+
+    -- Overrides the label hide method.
+    function self:hide()
+      super(self).hide(self)
+      self.button:hide()
+    end
+
+    -- Overrides the label show method.
+    function self:show()
+      super(self).show(self)
+      self.button:show()
+    end
+
+    -- Overrides the label tofront method.
+    function self:tofront()
+      super(self).tofront(self)
+      self.button:tofront()
+    end
+
+    -- Overrides the label toback method.
+    function self:toback()
+      super(self).toback(self)
+      self.button:toback()
+    end
+
+    -- Overrides the button onclick event.
+    function self.button:onClick()
+      local directory = ui.dirdialog()
+
+      if directory ~= nil then
+        self.mother.text = directory.fullpath
+      end
+    end
+  end
+
+  return DirectoryLabel(...)
 end
 
 --#endregion
