@@ -227,7 +227,7 @@ end
 
 --#endregion
 
---#region columnpanel ##
+--#region columnpanel
 
 -- Creates a new column panel object.
 local ColumnPanel = Object(ui.Panel)
@@ -552,7 +552,7 @@ end
 
 --#endregion
 
---#region advancedcheckbox ##
+--#region advancedcheckbox
 
 -- Initializes a new strike checkbox instance.
 function uiextension.AdvancedCheckbox(...)
