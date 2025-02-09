@@ -18,10 +18,6 @@ Initializes a new hyper link instance.
 HyperLink(parent, caption, [x], [y], [width], [height])
 ```
 
-Parameter | Type | Description
----|---|---
--- | -- | --
-
 ## Property - LINK
 
 Sets or gets the external link.

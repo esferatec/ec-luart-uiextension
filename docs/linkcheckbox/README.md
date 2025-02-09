@@ -18,10 +18,6 @@ Initializes a new link checkbox instance.
 LinkCheckbox(parent, caption, [x], [y], [width], [height])
 ```
 
-Parameter | Type | Description
----|---|---
--- | -- | --
-
 ## Example
 
 ```Lua

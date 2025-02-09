@@ -18,10 +18,6 @@ Initializes a new link label instance.
 LinkLabel(parent, caption, [x], [y], [width], [height])
 ```
 
-Parameter | Type | Description
----|---|---
--- | -- | --
-
 ## Example
 
 ```Lua

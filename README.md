@@ -5,7 +5,7 @@ It has been designed to simplify and improve the creation of graphical user inte
 
 ![examples](/readme.png)
 
-[![LuaRT 1.8.0](https://badgen.net/badge/LuaRT/1.8.0/blue)](https://github.com/samyeyo/LuaRT)
+[![LuaRT 1.9.0](https://badgen.net/badge/LuaRT/1.9.0/blue)](https://github.com/samyeyo/LuaRT)
 
 ## Features
 
@@ -32,8 +32,6 @@ The module provides the following extension objects:
 
 
 More detailed descriptions and usage examples can be found in the docs folder.
-
-*The LinkLabel and HyperLink objects were inspired by the LuaRT example.*
 
 ## Installation
 

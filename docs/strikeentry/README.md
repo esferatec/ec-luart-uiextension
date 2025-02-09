@@ -18,10 +18,6 @@ Initializes a new stricke entry instance.
 StrikeEntry(parent, caption, [x], [y], [width], [height])
 ```
 
-Parameter | Type | Description
----|---|---
--- | -- | --
-
 ## Example
 
 ```Lua

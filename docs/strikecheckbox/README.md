@@ -18,10 +18,6 @@ Initializes a new stricke checkbox instance.
 StrikeCheckbox(parent, caption, [x], [y], [width], [height])
 ```
 
-Parameter | Type | Description
----|---|---
--- | -- | --
-
 ## Example
 
 ```Lua
