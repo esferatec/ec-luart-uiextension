@@ -3,8 +3,6 @@
 This project provides various extension ui objects for [LuaRT](https://www.luart.org/).
 It has been designed to simplify and improve the creation of graphical user interfaces with the LuaRT ui module.
 
-![examples](/readme.png)
-
 [![LuaRT 1.9.5](https://badgen.net/badge/LuaRT/1.9.5/blue)](https://github.com/samyeyo/LuaRT)
 
 ## Features
