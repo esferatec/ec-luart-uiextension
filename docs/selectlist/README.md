@@ -18,10 +18,6 @@ Initializes a new select list instance.
 SelectList(parent, items, [x], [y], [width], [height])
 ```
 
-Parameter | Type | Description
----|---|---
--- | -- | --
-
 ## Property - SELECTEDITEMS
 
 Gets the selected list items.
