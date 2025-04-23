@@ -5,7 +5,6 @@ local uidatetime = {}
 
 --Defines a function that returns a formatted part of the date.
 local function getFormattedDate(code, date)
-	print(date)
 	return os.date(code, os.time({ year = date.year, month = date.month, day = date.day }))
 end
 
