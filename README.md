@@ -27,7 +27,10 @@ The module provides the following extension objects:
 | StrikeCheckbox | Represents a checkbox control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
 | StrikeEdit | Represents a edit control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
 | StrikeEntry | Represents a entry control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
-
+| DaynameLabel | Represents a label control that display a dayname. | uidatetime.lua
+| DaynumberLabel | Represents a label control that display a daynumber. | uidatetime.lua
+| MonthnameLabel | Represents a label control that display a monthname. | uidatetime.lua
+| WeeknumberLabel | Represents a label control that display a weeknumber. | uidatetime.lua
 
 More detailed descriptions and usage examples can be found in the docs folder.
 
@@ -35,7 +38,8 @@ More detailed descriptions and usage examples can be found in the docs folder.
 
 1. Create a folder called "ecluart" in your application.
 2. Copy the "uiextension.lua" file into this folder.
-3. Copy any icon files into the same folder.
+3. Copy the "uidatetime.lua" file into this folder.
+4. Copy any icon files into the same folder.
 
 ```text
 [application]
@@ -43,6 +47,7 @@ More detailed descriptions and usage examples can be found in the docs folder.
 |----ecluart
 |   |
 |   |----uiextension.lua
+|   |----uidatetime.lua
 |   |----...
 |
 |----app.wlua
@@ -53,7 +58,8 @@ More detailed descriptions and usage examples can be found in the docs folder.
 The extension module can be loaded using the function *require()*:
 
 ```lua
-local uiextension = require("ecluart.uiextension") 
+local uiex = require("ecluart.uiextension")
+local uidt = require("ecluart.uidatetime")  
 ```
 
 ## License

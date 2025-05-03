@@ -188,6 +188,42 @@ function uidatetime.DaynumberLabel(...)
 	return DaynumberLabel(...)
 end
 
+-- Initializes a new monthnumber label instance.
+function uidatetime.MonthnumberLabel(...)
+	-- Creates a new daynumber label object.
+	local MonthnumberLabel = Object(ui.Label)
+
+	-- Overrides the default label constructor.
+	function MonthnumberLabel:constructor(...)
+		local _datetime = sys.Datetime()
+		local _text = ""
+
+		super(self).constructor(self, ...)
+		_text = self.text
+		self.text = _text .. getFormattedDate("%m", _datetime)
+
+		-- Creates a label datetime setter.
+		function self:set_datetime(value)
+			assert(type(value) == "table",
+				"bad argument #1 error while setting property 'DaynameLabel.datetime' (datetime expected, got " ..
+				type(value) .. ")")
+			assert(is(value, sys.Datetime),
+				"bad argument #2 error while setting property 'DaynameLabel.datetime' (datetime expected, got " ..
+				type(value) .. ")")
+
+			_datetime = value
+			self.text = _text .. getFormattedDate("%m", _datetime)
+		end
+
+		-- Creates a label datetime getter.
+		function self:get_datetime()
+			return _datetime
+		end
+	end
+
+	return MonthnumberLabel(...)
+end
+
 --#endregion
 
 return uidatetime
