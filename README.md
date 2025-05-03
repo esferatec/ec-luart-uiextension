@@ -30,6 +30,7 @@ The module provides the following extension objects:
 | DaynameLabel | Represents a label control that display a dayname. | uidatetime.lua
 | DaynumberLabel | Represents a label control that display a daynumber. | uidatetime.lua
 | MonthnameLabel | Represents a label control that display a monthname. | uidatetime.lua
+| MonthnumberLabel | Represents a label control that display a monthnumber. | uidatetime.lua
 | WeeknumberLabel | Represents a label control that display a weeknumber. | uidatetime.lua
 
 More detailed descriptions and usage examples can be found in the docs folder.
