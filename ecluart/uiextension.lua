@@ -1026,4 +1026,125 @@ end
 
 --#endregion
 
+
+--#region integerentry
+
+-- Initializes a new directory entry instance.
+function uiextension.IntegerEntry(...)
+  local IntegerEntry = Object(ui.Entry)
+
+  -- Overrides the default entry constructor.
+  function IntegerEntry:constructor(...)
+    super(self).constructor(self, ...)
+
+    self.buttonup = ui.Button(self.parent, "+")
+    self.buttonup.mother = self
+    self.buttondown = ui.Button(self.parent, "-")
+    self.buttondown.mother = self
+
+    self.gap = 1
+    self.width = self.width - self.buttonup.width - self.gap
+    self.buttonup.height = self.height
+    self.buttondown.height = self.height
+    self.buttonup.width = 20
+    self.buttondown.width = 20
+    self.buttonup.x = self.x + self.width + self.gap
+    self.buttondown.x = self.x + self.width + self.gap + self.buttonup.width - 1
+    self.buttonup.y = self.y
+    self.buttondown.y = self.y
+
+    -- Overrides the entry x setter.
+    function self:set_x(value)
+      super(self).set_x(self, value)
+      self.buttonup.x = value + super(self).get_width(self) + self.gap
+      self.buttondown.x = value + super(self).get_width(self) + self.gap
+    end
+
+    -- Overrides the entry y setter.
+    function self:set_y(value)
+      super(self).set_y(self, value)
+      self.buttonup.y = value
+      self.buttondown.y = value + (super(self).get_height(self) / 2)
+    end
+
+    -- Overrides the entry width setter.
+    function self:set_width(value)
+      super(self).set_width(self, value - self.button.width - self.gap)
+      self.buttonup.x = self.x + super(self).get_width(self) + self.gap
+      self.buttondown.x = self.x + super(self).get_width(self) + self.gap
+    end
+
+    -- Overrides the entry width getter.
+    function self:get_width()
+      return super(self).get_width(self) + self.gap + self.buttonup.width
+    end
+
+    -- Overrides the entry height setter.
+    function self:set_height(value)
+      super(self).set_height(self, value)
+      self.buttonup.height = value / 2
+      self.buttondown.height = value / 2
+    end
+
+    -- Overrides the entry visible setter.
+    function self:set_visible(value)
+      super(self).set_visible(self, value)
+      self.buttonup.visible = value
+      self.buttondown.visible = value
+    end
+
+    -- Overrides the entry enabled setter.
+    function self:set_enabled(value)
+      super(self).set_enabled(self, value)
+      self.buttonup.enabled = value
+      self.buttondown.enabled = value
+    end
+
+    -- Overrides the entry hide method.
+    function self:hide()
+      super(self).hide(self)
+      self.buttonup:hide()
+      self.buttondown:hide()
+    end
+
+    -- Overrides the entry show method.
+    function self:show()
+      super(self).show(self)
+      self.buttonup:show()
+      self.buttondown:show()
+    end
+
+    -- Overrides the entry tofront method.
+    function self:tofront()
+      super(self).tofront(self)
+      self.buttonup:tofront()
+      self.buttondown:tofront()
+    end
+
+    -- Overrides the entry toback method.
+    function self:toback()
+      super(self).toback(self)
+      self.buttonup:toback()
+      self.buttondown:toback()
+    end
+
+    -- Overrides the buttonup onclick event.
+    function self.buttonup:onClick()
+      local _t = tonumber(self.mother.text)
+      self.mother.text = tostring(_t + 1)
+    end
+
+    -- Overrides the buttondown onclick event.
+    function self.buttondown:onClick()
+      local _t = tonumber(self.mother.text)
+      self.mother.text = tostring(_t - 1)
+    end
+  end
+
+  return IntegerEntry(...)
+end
+
+--#endregion
+
+
 return uiextension
