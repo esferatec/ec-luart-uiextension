@@ -8,6 +8,11 @@ local function getFormattedDate(code, date)
 	return os.date(code, os.time({ year = date.year, month = date.month, day = date.day }))
 end
 
+--Defines a function that returns a leading zero to single-digit number.
+local function addLeadingZero(number)
+  return (number < 10 and "0" .. tostring(number) or tostring(number))
+end
+
 --#endregion
 
 --#region name labels
@@ -222,6 +227,115 @@ function uidatetime.MonthnumberLabel(...)
 	end
 
 	return MonthnumberLabel(...)
+end
+
+--#endregion
+
+--#region date labels
+
+-- Initialize a new day label instance.
+function uidatetime.DayLabel(...)
+	-- Creates a new day label object.
+	local DayLabel = Object(ui.Label)
+
+	-- Overrides the default label constructor.
+	function DayLabel:constructor(...)
+		local _datetime = sys.Datetime()
+
+		super(self).constructor(self, ...)
+		self.text = addLeadingZero(_datetime.day)
+
+		-- Creates a label datetime setter.
+		function self:set_datetime(value)
+			assert(type(value) == "table",
+				"bad argument #1 error while setting property 'DaynameLabel.datetime' (datetime expected, got " ..
+				type(value) .. ")")
+			assert(is(value, sys.Datetime),
+				"bad argument #2 error while setting property 'DaynameLabel.datetime' (datetime expected, got " ..
+				type(value) .. ")")
+
+			_datetime = value
+			self.text = addLeadingZero(_datetime.day)
+		end
+
+		-- Creates a label datetime getter.
+		function self:get_datetime()
+			return _datetime
+		end
+
+	end
+
+	return DayLabel(...)
+end
+
+-- Initialize a new month label instance.
+function uidatetime.MonthLabel(...)
+	-- Creates a new month label object.
+	local MonthLabel = Object(ui.Label)
+
+	-- Overrides the default label constructor.
+	function MonthLabel:constructor(...)
+		local _datetime = sys.Datetime()
+
+		super(self).constructor(self, ...)
+		self.text = addLeadingZero(_datetime.month)
+
+		-- Creates a label datetime setter.
+		function self:set_datetime(value)
+			assert(type(value) == "table",
+				"bad argument #1 error while setting property 'DaynameLabel.datetime' (datetime expected, got " ..
+				type(value) .. ")")
+			assert(is(value, sys.Datetime),
+				"bad argument #2 error while setting property 'DaynameLabel.datetime' (datetime expected, got " ..
+				type(value) .. ")")
+
+			_datetime = value
+			self.text = addLeadingZero(_datetime.month)
+		end
+
+		-- Creates a label datetime getter.
+		function self:get_datetime()
+			return _datetime
+		end
+
+	end
+
+	return MonthLabel(...)
+end
+
+-- Initialize a new year label instance.
+function uidatetime.YearLabel(...)
+	-- Creates a new year label object.
+	local YearLabel = Object(ui.Label)
+
+	-- Overrides the default label constructor.
+	function YearLabel:constructor(...)
+		local _datetime = sys.Datetime()
+
+		super(self).constructor(self, ...)
+		self.text = _datetime.year
+
+		-- Creates a label datetime setter.
+		function self:set_datetime(value)
+			assert(type(value) == "table",
+				"bad argument #1 error while setting property 'DaynameLabel.datetime' (datetime expected, got " ..
+				type(value) .. ")")
+			assert(is(value, sys.Datetime),
+				"bad argument #2 error while setting property 'DaynameLabel.datetime' (datetime expected, got " ..
+				type(value) .. ")")
+
+			_datetime = value
+			self.text = _datetime.year
+		end
+
+		-- Creates a label datetime getter.
+		function self:get_datetime()
+			return _datetime
+		end
+
+	end
+
+	return YearLabel(...)
 end
 
 --#endregion

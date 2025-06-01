@@ -27,11 +27,15 @@ The module provides the following extension objects:
 | StrikeCheckbox | Represents a checkbox control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
 | StrikeEdit | Represents a edit control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
 | StrikeEntry | Represents a entry control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
+| * | * | * |
+| DayLabel | Represents a label control that display a day. | uidatetime.lua
 | DaynameLabel | Represents a label control that display a dayname. | uidatetime.lua
 | DaynumberLabel | Represents a label control that display a daynumber. | uidatetime.lua
+| MonthLabel | Represents a label control that display a month. | uidatetime.lua
 | MonthnameLabel | Represents a label control that display a monthname. | uidatetime.lua
 | MonthnumberLabel | Represents a label control that display a monthnumber. | uidatetime.lua
 | WeeknumberLabel | Represents a label control that display a weeknumber. | uidatetime.lua
+| YearLabel | Represents a label control that display a year. | uidatetime.lua
 
 More detailed descriptions and usage examples can be found in the docs folder.
 
