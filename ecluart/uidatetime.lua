@@ -1,3 +1,5 @@
+local ui = require("ui")
+
 -- Provides various datetime ui objects.
 local uidatetime = {}
 

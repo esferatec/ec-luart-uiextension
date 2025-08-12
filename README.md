@@ -36,15 +36,19 @@ The module provides the following extension objects:
 | MonthnumberLabel | Represents a label control that display a monthnumber. | uidatetime.lua
 | WeeknumberLabel | Represents a label control that display a weeknumber. | uidatetime.lua
 | YearLabel | Represents a label control that display a year. | uidatetime.lua
+| * | * | * |
+| BorderLabel | Represents a label control with a border. | uiborder.lua
+| BorderLabel | Represents a picture control with a border. | uiborder.lua
 
 More detailed descriptions and usage examples can be found in the docs folder.
 
 ## Installation
 
 1. Create a folder called "ecluart" in your application.
-2. Copy the "uiextension.lua" file into this folder.
-3. Copy the "uidatetime.lua" file into this folder.
-4. Copy any icon files into the same folder.
+1. Copy the "uiextension.lua" file into this folder.
+1. Copy the "uidatetime.lua" file into this folder.
+1. Copy the "uiborder.lua" file into this folder.
+1. Copy any icon files into the same folder.
 
 ```text
 [application]
@@ -53,6 +57,7 @@ More detailed descriptions and usage examples can be found in the docs folder.
 |   |
 |   |----uiextension.lua
 |   |----uidatetime.lua
+|   |----uiborder.lua
 |   |----...
 |
 |----app.wlua
@@ -65,6 +70,7 @@ The extension module can be loaded using the function *require()*:
 ```lua
 local uiex = require("ecluart.uiextension")
 local uidt = require("ecluart.uidatetime")  
+local uidb = require("ecluart.uiborder")  
 ```
 
 ## License
