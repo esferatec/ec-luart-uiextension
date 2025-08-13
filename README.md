@@ -37,8 +37,8 @@ The module provides the following extension objects:
 | WeeknumberLabel | Represents a label control that display a weeknumber. | uidatetime.lua
 | YearLabel | Represents a label control that display a year. | uidatetime.lua
 | * | * | * |
-| BorderLabel | Represents a label control with a border. | uiborder.lua
-| BorderLabel | Represents a picture control with a border. | uiborder.lua
+| [BorderLabel](docs/borderlabel/README.md) | Represents a label control with a border. | uiborder.lua
+| BorderPicture | Represents a picture control with a border. | uiborder.lua
 
 More detailed descriptions and usage examples can be found in the docs folder.
 
