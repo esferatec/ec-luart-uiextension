@@ -38,7 +38,7 @@ The module provides the following extension objects:
 | YearLabel | Represents a label control that display a year. | uidatetime.lua
 | * | * | * |
 | [BorderLabel](docs/borderlabel/README.md) | Represents a label control with a border. | uiborder.lua
-| BorderPicture | Represents a picture control with a border. | uiborder.lua
+| [BorderPicture](docs/borderpicture/README.md) | Represents a picture control with a border. | uiborder.lua
 
 More detailed descriptions and usage examples can be found in the docs folder.
 
