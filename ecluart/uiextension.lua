@@ -1026,8 +1026,7 @@ end
 
 --#endregion
 
-
---#region integerentry
+--#region integerentry OFFEN
 
 -- Initializes a new directory entry instance.
 function uiextension.IntegerEntry(...)
@@ -1146,5 +1145,22 @@ end
 
 --#endregion
 
+--#region buttonpicture OFFEN
+
+-- Initializes a new button picture instance.
+function uiextension.ButtonPicture(...)
+  -- Creates a new link label object.
+  local ButtonPicture = Object(ui.Picture)
+
+  -- Overrides the default picture constructor.
+  function ButtonPicture:constructor(...)
+    super(self).constructor(self, ...)
+    self.cursor = "hand"
+  end
+
+  return ButtonPicture(...)
+end
+
+--#endregion
 
 return uiextension
