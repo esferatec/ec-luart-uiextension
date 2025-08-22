@@ -11,22 +11,22 @@ The module provides the following extension objects:
 
 | Name | Description | Module |
 | --- | --- | --- |
-| AdvancedCheckbox | Represents a checkbox control with a strike-through effect when checked. The onClick event will change the fontstyle property. When the user moves the mouse pointer over the checkbox, an edit control appears. to edit the content. | uiextension.lua
-| ColumnPanel | Represents a panel control containing a collection of children widgets. The onClick event saves the current row. | uiextension.lua
-| DirectoryEntry | Represents a entry control with a button that allows the user to easily select a directory. | uiextension.lua
-| DirectoryLabel | Represents a label control with a button that allows the user to easily select a directory. | uiextension.lua
-| DirectoryLink | Represents a label control that can display an external link. The onClick event will open the directory in the file explorer. | uiextension.lua
-| FileEntry | Represents a entry control with a button that allows the user to easily select a file. | uiextension.lua
-| FileLabel | Represents a label control with a button that allows the user to easily select a file. | uiextension.lua
-| FileLink | Represents a label control that can display an external link. The onClick event will open the file in the file explorer. | uiextension.lua
-| HyperLink | Represents a label control that can display an external link. The onClick event will open the link in the web browser. | uiextension.lua
-| LinkCheckbox | Represents a checkbox control that can display an internal link. The onClick event can be used to execute any code. | uiextension.lua
-| LinkLabel | Represents a label control that can display an internal link. The onClick event can be used to execute any code. | uiextension.lua
-| LinkRadiobutton | Represents a radiobutton control that can display an internal link. The onClick event can be used to execute any code. | uiextension.lua
-| SelectList | Represents a list control containing a collection of selectable items. The onDoubleClick event selects or deselects the item. | uiextension.lua
-| StrikeCheckbox | Represents a checkbox control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
-| StrikeEdit | Represents a edit control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
-| StrikeEntry | Represents a entry control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
+| [AdvancedCheckbox](docs/advancedcheckbox/README.md) | Represents a checkbox control with a strike-through effect when checked. The onClick event will change the fontstyle property. When the user moves the mouse pointer over the checkbox, an edit control appears. to edit the content. | uiextension.lua
+| [ColumnPanel](docs/columnpanel/README.md) | Represents a panel control containing a collection of children widgets. The onClick event saves the current row. | uiextension.lua
+| [DirectoryEntry](docs/directoryentry/README.md) | Represents a entry control with a button that allows the user to easily select a directory. | uiextension.lua
+| [DirectoryLabel](docs/directorylabel/README.md) | Represents a label control with a button that allows the user to easily select a directory. | uiextension.lua
+| [DirectoryLink](docs/directorylink/README.md) | Represents a label control that can display an external link. The onClick event will open the directory in the file explorer. | uiextension.lua
+| [FileEntry](docs/fileentry/README.md) | Represents a entry control with a button that allows the user to easily select a file. | uiextension.lua
+| [FileLabel](docs/filelabel/README.md) | Represents a label control with a button that allows the user to easily select a file. | uiextension.lua
+| [FileLink](docs/filelink/README.md) | Represents a label control that can display an external link. The onClick event will open the file in the file explorer. | uiextension.lua
+| [HyperLink](docs/hyperlink/README.md) | Represents a label control that can display an external link. The onClick event will open the link in the web browser. | uiextension.lua
+| [LinkCheckbox](docs/linkcheckbox/README.md) | Represents a checkbox control that can display an internal link. The onClick event can be used to execute any code. | uiextension.lua
+| [LinkLabel](docs/linklabel/README.md) | Represents a label control that can display an internal link. The onClick event can be used to execute any code. | uiextension.lua
+| [LinkRadiobutton](docs/linkradiobutton/README.md) | Represents a radiobutton control that can display an internal link. The onClick event can be used to execute any code. | uiextension.lua
+| [SelectList](docs/selectlist/README.md) | Represents a list control containing a collection of selectable items. The onDoubleClick event selects or deselects the item. | uiextension.lua
+| [StrikeCheckbox](docs/strikecheckbox/README.md) | Represents a checkbox control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
+| [StrikeEdit](docs/strikeedit/README.md) | Represents a edit control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
+| [StrikeEntry](docs/strikeentry/README.md) | Represents a entry control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
 | * | * | * |
 | DayLabel | Represents a label control that display a day. | uidatetime.lua
 | DaynameLabel | Represents a label control that display a dayname. | uidatetime.lua
