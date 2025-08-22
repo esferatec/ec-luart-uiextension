@@ -78,5 +78,3 @@ end
 
 ui.run(win):wait()
 ```
-
-![ColumnPanel](/docs/columnpanel/columnpanel01.png)

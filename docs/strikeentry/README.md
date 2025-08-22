@@ -32,5 +32,3 @@ check.checked = true
 
 ui.run(win):wait()
 ```
-
-![strikeentry](/docs/strikeentry/strikeentry01.png)

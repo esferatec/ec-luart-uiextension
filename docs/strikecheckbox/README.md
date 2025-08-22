@@ -33,5 +33,3 @@ check.checked = true
 
 ui.run(win):wait()
 ```
-
-![strikecheckbox](/docs/strikecheckbox/strikecheckbox01.png)

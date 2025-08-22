@@ -40,5 +40,3 @@ link:center()
 
 ui.run(win):wait()
 ```
-
-![hyperlink](/docs/hyperlink/hyperlink01.png)

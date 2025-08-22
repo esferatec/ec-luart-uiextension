@@ -30,5 +30,3 @@ label.fontstyle = { bold = true }
 
 ui.run(win):wait()
 ```
-
-![filelabel](/docs/filelabel/filelabel01.png)

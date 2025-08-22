@@ -40,5 +40,3 @@ link:center()
 
 ui.run(win):wait()
 ```
-
-![directorylink](/docs/directorylink/directorylink01.png)

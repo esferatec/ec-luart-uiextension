@@ -51,5 +51,3 @@ end
 
 ui.run(win):wait()
 ```
-
-![selectlist](/docs/selectlist/selectlist01.png)

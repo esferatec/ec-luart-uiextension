@@ -29,5 +29,3 @@ entry.fontstyle = { bold = true }
 
 ui.run(win):wait()
 ```
-
-![fileentry](/docs/fileentry/fileentry01.png)

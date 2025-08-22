@@ -1,8 +1,8 @@
 # LinkRadiobutton
 
-Represents a radiobutton control that can display an internal link. The onClick event can be used to execute any code. 
+Represents a radiobutton control that can display an internal link. The onClick event can be used to execute any code.
 
-![linkradiobutton](/docs/linkcheckbox/linkradiobutton01.png)
+![linkradiobutton](/docs/linkradiobutton/linkradiobutton01.png)
 
 **Note:**
 This documentation describes only the additional properties and methods.
@@ -36,5 +36,3 @@ end
 
 ui.run(win):wait()
 ```
-
-![linkradiobutton](/docs/linkcheckbox/linkradiobutton01.png)

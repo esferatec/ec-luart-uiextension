@@ -29,5 +29,3 @@ label.bgcolor = 0xFFFFFF
 
 ui.run(win):wait()
 ```
-
-![directorylabel](/docs/directorylabel/directorylabel01.png)

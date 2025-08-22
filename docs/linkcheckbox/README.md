@@ -1,6 +1,6 @@
 # LinkCheckbox
 
-Represents a checkbox control that can display an internal link. The onClick event can be used to execute any code. 
+Represents a checkbox control that can display an internal link. The onClick event can be used to execute any code.
 
 ![linkcheckbox](/docs/linkcheckbox/linkcheckbox01.png)
 
@@ -36,5 +36,3 @@ end
 
 ui.run(win):wait()
 ```
-
-![linkcheckbox](/docs/linkcheckbox/linkcheckbox01.png)

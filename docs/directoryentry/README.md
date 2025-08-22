@@ -29,5 +29,3 @@ entry.fontstyle = { bold = true }
 
 ui.run(win):wait()
 ```
-
-![directoryentry](/docs/directoryentry/directoryentry01.png)

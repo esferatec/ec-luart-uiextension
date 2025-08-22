@@ -35,5 +35,3 @@ end
 
 ui.run(win):wait()
 ```
-
-![linklabel](/docs/linklabel/linklabel01.png)

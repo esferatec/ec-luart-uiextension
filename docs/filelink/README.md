@@ -40,5 +40,3 @@ link:center()
 
 ui.run(win):wait()
 ```
-
-![filelink](/docs/filelink/filelink01.png)
