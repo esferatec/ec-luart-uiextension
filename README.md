@@ -3,42 +3,30 @@
 This project provides various extension ui objects for [LuaRT](https://www.luart.org/).
 It has been designed to simplify and improve the creation of graphical user interfaces with the LuaRT ui module.
 
-[![LuaRT 2.0.0](https://badgen.net/badge/LuaRT/2.0.0/blue)](https://github.com/samyeyo/LuaRT)
+[![LuaRT 2.1.0](https://badgen.net/badge/LuaRT/2.1.0/blue)](https://github.com/samyeyo/LuaRT)
 
 ## Features
 
 The module provides the following extension objects:
 
-| Name | Description | Module |
-| --- | --- | --- |
-| [AdvancedCheckbox](docs/advancedcheckbox/README.md) | Represents a checkbox control with a strike-through effect when checked. The onClick event will change the fontstyle property. When the user moves the mouse pointer over the checkbox, an edit control appears. to edit the content. | uiextension.lua
-| [ColumnPanel](docs/columnpanel/README.md) | Represents a panel control containing a collection of children widgets. The onClick event saves the current row. | uiextension.lua
-| [DirectoryEntry](docs/directoryentry/README.md) | Represents a entry control with a button that allows the user to easily select a directory. | uiextension.lua
-| [DirectoryLabel](docs/directorylabel/README.md) | Represents a label control with a button that allows the user to easily select a directory. | uiextension.lua
-| [DirectoryLink](docs/directorylink/README.md) | Represents a label control that can display an external link. The onClick event will open the directory in the file explorer. | uiextension.lua
-| [FileEntry](docs/fileentry/README.md) | Represents a entry control with a button that allows the user to easily select a file. | uiextension.lua
-| [FileLabel](docs/filelabel/README.md) | Represents a label control with a button that allows the user to easily select a file. | uiextension.lua
-| [FileLink](docs/filelink/README.md) | Represents a label control that can display an external link. The onClick event will open the file in the file explorer. | uiextension.lua
-| [HyperLink](docs/hyperlink/README.md) | Represents a label control that can display an external link. The onClick event will open the link in the web browser. | uiextension.lua
-| [LinkCheckbox](docs/linkcheckbox/README.md) | Represents a checkbox control that can display an internal link. The onClick event can be used to execute any code. | uiextension.lua
-| [LinkLabel](docs/linklabel/README.md) | Represents a label control that can display an internal link. The onClick event can be used to execute any code. | uiextension.lua
-| [LinkRadiobutton](docs/linkradiobutton/README.md) | Represents a radiobutton control that can display an internal link. The onClick event can be used to execute any code. | uiextension.lua
-| [SelectList](docs/selectlist/README.md) | Represents a list control containing a collection of selectable items. The onDoubleClick event selects or deselects the item. | uiextension.lua
-| [StrikeCheckbox](docs/strikecheckbox/README.md) | Represents a checkbox control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
-| [StrikeEdit](docs/strikeedit/README.md) | Represents a edit control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
-| [StrikeEntry](docs/strikeentry/README.md) | Represents a entry control with a strike-through effect when checked. The onClick event will change the fontstyle property. | uiextension.lua
-| * | * | * |
-| DayLabel | Represents a label control that display a day. | uidatetime.lua
-| DaynameLabel | Represents a label control that display a dayname. | uidatetime.lua
-| DaynumberLabel | Represents a label control that display a daynumber. | uidatetime.lua
-| MonthLabel | Represents a label control that display a month. | uidatetime.lua
-| MonthnameLabel | Represents a label control that display a monthname. | uidatetime.lua
-| MonthnumberLabel | Represents a label control that display a monthnumber. | uidatetime.lua
-| WeeknumberLabel | Represents a label control that display a weeknumber. | uidatetime.lua
-| YearLabel | Represents a label control that display a year. | uidatetime.lua
-| * | * | * |
-| [BorderLabel](docs/borderlabel/README.md) | Represents a label control with a border. | uiborder.lua
-| [BorderPicture](docs/borderpicture/README.md) | Represents a picture control with a border. | uiborder.lua
+| Name | Description |
+| --- | --- |
+| [AdvancedCheckbox](docs/advancedcheckbox/README.md) | Represents a checkbox control with a strike-through effect when checked. The onClick event will change the fontstyle property. When the user moves the mouse pointer over the checkbox, an edit control appears. to edit the content. |  
+| [ColumnPanel](docs/columnpanel/README.md) | Represents a panel control containing a collection of children widgets. The onClick event saves the current row. |  
+| [DirectoryEntry](docs/directoryentry/README.md) | Represents a entry control with a button that allows the user to easily select a directory. |  
+| [DirectoryLabel](docs/directorylabel/README.md) | Represents a label control with a button that allows the user to easily select a directory. |  
+| [DirectoryLink](docs/directorylink/README.md) | Represents a label control that can display an external link. The onClick event will open the directory in the file explorer. |  
+| [FileEntry](docs/fileentry/README.md) | Represents a entry control with a button that allows the user to easily select a file. |  
+| [FileLabel](docs/filelabel/README.md) | Represents a label control with a button that allows the user to easily select a file. |  
+| [FileLink](docs/filelink/README.md) | Represents a label control that can display an external link. The onClick event will open the file in the file explorer. |  
+| [HyperLink](docs/hyperlink/README.md) | Represents a label control that can display an external link. The onClick event will open the link in the web browser. |  
+| [LinkCheckbox](docs/linkcheckbox/README.md) | Represents a checkbox control that can display an internal link. The onClick event can be used to execute any code. |  
+| [LinkLabel](docs/linklabel/README.md) | Represents a label control that can display an internal link. The onClick event can be used to execute any code. |  
+| [LinkRadiobutton](docs/linkradiobutton/README.md) | Represents a radiobutton control that can display an internal link. The onClick event can be used to execute any code. |  
+| [SelectList](docs/selectlist/README.md) | Represents a list control containing a collection of selectable items. The onDoubleClick event selects or deselects the item. |  
+| [StrikeCheckbox](docs/strikecheckbox/README.md) | Represents a checkbox control with a strike-through effect when checked. The onClick event will change the fontstyle property. |  
+| [StrikeEdit](docs/strikeedit/README.md) | Represents a edit control with a strike-through effect when checked. The onClick event will change the fontstyle property. |  
+| [StrikeEntry](docs/strikeentry/README.md) | Represents a entry control with a strike-through effect when checked. The onClick event will change the fontstyle property. |  
 
 More detailed descriptions and usage examples can be found in the docs folder.
 
@@ -46,8 +34,6 @@ More detailed descriptions and usage examples can be found in the docs folder.
 
 1. Create a folder called "ecluart" in your application.
 1. Copy the "uiextension.lua" file into this folder.
-1. Copy the "uidatetime.lua" file into this folder.
-1. Copy the "uiborder.lua" file into this folder.
 1. Copy any icon files into the same folder.
 
 ```text
@@ -56,8 +42,6 @@ More detailed descriptions and usage examples can be found in the docs folder.
 |----ecluart
 |   |
 |   |----uiextension.lua
-|   |----uidatetime.lua
-|   |----uiborder.lua
 |   |----...
 |
 |----app.wlua
@@ -68,9 +52,7 @@ More detailed descriptions and usage examples can be found in the docs folder.
 The extension module can be loaded using the function *require()*:
 
 ```lua
-local uiex = require("ecluart.uiextension")
-local uidt = require("ecluart.uidatetime")  
-local uidb = require("ecluart.uiborder")  
+local uiextension = require("ecluart.uiextension")
 ```
 
 ## License
